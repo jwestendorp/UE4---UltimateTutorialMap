@@ -2,7 +2,9 @@ UE4---UltimateTutorialMap
 =========================
 
 This map tries to collect as many community tutorials as possible in 1 giant map.
+
 Use branch "commits" for Commits :D
+
 Master will be merged every week (if something happened in commits)
 
 How to use
