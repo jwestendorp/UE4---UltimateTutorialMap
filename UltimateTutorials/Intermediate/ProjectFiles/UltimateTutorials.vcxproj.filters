@@ -4,7 +4,7 @@
 	<ItemGroup>
 		<None Include="..\..\UltimateTutorials.uproject" />
 		<Filter Include="Source">
-			<UniqueIdentifier>{4B6ABB57-3B30-4C94-9AF9-AA143F17236C}</UniqueIdentifier>
+			<UniqueIdentifier>{9FC85FD9-9409-4187-BDAC-BA48095B6109}</UniqueIdentifier>
 		</Filter>
 		<None Include="..\..\Source\UltimateTutorials.Target.cs">
 			<Filter>Source</Filter>
@@ -13,7 +13,7 @@
 			<Filter>Source</Filter>
 		</None >
 		<Filter Include="Config">
-			<UniqueIdentifier>{96CE2E8B-092A-4DD6-9468-1F9B1722EC5C}</UniqueIdentifier>
+			<UniqueIdentifier>{094F27D3-895E-41F2-91BA-64B39C5E1CA4}</UniqueIdentifier>
 		</Filter>
 		<None Include="..\..\Config\DefaultEditor.ini">
 			<Filter>Config</Filter>
@@ -31,12 +31,24 @@
 			<Filter>Config</Filter>
 		</None >
 		<Filter Include="Source\UltimateTutorials">
-			<UniqueIdentifier>{7E8B4CC1-CE13-455A-8890-5113778A3CE3}</UniqueIdentifier>
+			<UniqueIdentifier>{9CD14B67-66D2-4BBD-8154-CD2AD4E5DA79}</UniqueIdentifier>
 		</Filter>
 		<ClCompile Include="..\..\Source\UltimateTutorials\DayTimeLight.cpp">
 			<Filter>Source\UltimateTutorials</Filter>
 		</ClCompile >
 		<ClInclude Include="..\..\Source\UltimateTutorials\DayTimeLight.h">
+			<Filter>Source\UltimateTutorials</Filter>
+		</ClInclude >
+		<ClCompile Include="..\..\Source\UltimateTutorials\FlickeringLightBrightness.cpp">
+			<Filter>Source\UltimateTutorials</Filter>
+		</ClCompile >
+		<ClInclude Include="..\..\Source\UltimateTutorials\FlickeringLightBrightness.h">
+			<Filter>Source\UltimateTutorials</Filter>
+		</ClInclude >
+		<ClCompile Include="..\..\Source\UltimateTutorials\FlickeringLightVisibility.cpp">
+			<Filter>Source\UltimateTutorials</Filter>
+		</ClCompile >
+		<ClInclude Include="..\..\Source\UltimateTutorials\FlickeringLightVisibility.h">
 			<Filter>Source\UltimateTutorials</Filter>
 		</ClInclude >
 		<None Include="..\..\Source\UltimateTutorials\UltimateTutorials.Build.cs">
@@ -61,10 +73,10 @@
 			<Filter>Source\UltimateTutorials</Filter>
 		</ClInclude >
 		<Filter Include="Source\UltimateTutorials\Resources">
-			<UniqueIdentifier>{72901AA5-127D-428D-909D-0B6D6A53B5C2}</UniqueIdentifier>
+			<UniqueIdentifier>{76B343B9-2110-46B5-A329-16344BCDE695}</UniqueIdentifier>
 		</Filter>
 		<Filter Include="Source\UltimateTutorials\Resources\Windows">
-			<UniqueIdentifier>{5413A7C7-BE33-4879-899F-1F3348CF7B17}</UniqueIdentifier>
+			<UniqueIdentifier>{963D89E7-F408-4886-8363-3BC6DF6BB8C2}</UniqueIdentifier>
 		</Filter>
 		<None Include="..\..\Source\UltimateTutorials\Resources\Windows\UltimateTutorials.ico">
 			<Filter>Source\UltimateTutorials\Resources\Windows</Filter>

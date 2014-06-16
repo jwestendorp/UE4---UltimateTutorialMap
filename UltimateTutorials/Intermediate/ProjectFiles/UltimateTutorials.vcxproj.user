@@ -23,4 +23,7 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug_Editor|x64'">
     <LocalDebuggerCommandArguments>"$(SolutionDir)$(SolutionName).uproject"</LocalDebuggerCommandArguments>
   </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Development_Editor|Win32'">
+    <LocalDebuggerCommandArguments />
+  </PropertyGroup>
 </Project>

@@ -4,14 +4,14 @@
 	<ItemGroup>
 		<None Include="..\..\..\..\Unreal Engine 4.2\Engine\Source\Programs\UnrealHeaderTool\UnrealHeaderTool.Target.cs" />
 		<Filter Include="Config">
-			<UniqueIdentifier>{6C56BC3E-A9C8-4B8C-8E45-9A2DF8C0AC78}</UniqueIdentifier>
+			<UniqueIdentifier>{CAFBB78A-BD01-4769-B544-73670D60A7F4}</UniqueIdentifier>
 		</Filter>
 		<None Include="..\..\..\..\Unreal Engine 4.2\Engine\Programs\UnrealHeaderTool\Config\DefaultEngine.ini">
 			<Filter>Config</Filter>
 		</None >
 		<None Include="..\..\..\..\Unreal Engine 4.2\Engine\Source\Programs\UnrealHeaderTool\UnrealHeaderTool.Build.cs" />
 		<Filter Include="Private">
-			<UniqueIdentifier>{8737C41A-04E7-4B63-A7C6-C50907323C63}</UniqueIdentifier>
+			<UniqueIdentifier>{FB949CE7-D2E3-48BB-A114-7AEA91E18FA4}</UniqueIdentifier>
 		</Filter>
 		<ClCompile Include="..\..\..\..\Unreal Engine 4.2\Engine\Source\Programs\UnrealHeaderTool\Private\BaseParser.cpp">
 			<Filter>Private</Filter>
@@ -71,7 +71,7 @@
 			<Filter>Private</Filter>
 		</ClCompile >
 		<Filter Include="Public">
-			<UniqueIdentifier>{9C9A5049-CBC3-4B7A-B2FB-F41057388248}</UniqueIdentifier>
+			<UniqueIdentifier>{68D2DF86-64DC-473A-B20F-584CA954BA8B}</UniqueIdentifier>
 		</Filter>
 		<ClInclude Include="..\..\..\..\Unreal Engine 4.2\Engine\Source\Programs\UnrealHeaderTool\Public\IScriptGeneratorPluginInterface.h">
 			<Filter>Public</Filter>
@@ -80,7 +80,7 @@
 			<Filter>Public</Filter>
 		</ClInclude >
 		<Filter Include="Resources">
-			<UniqueIdentifier>{5300617C-642F-4CA3-AE77-74D5749EDF69}</UniqueIdentifier>
+			<UniqueIdentifier>{964D5897-C4FD-4AC6-820E-A095127FAE31}</UniqueIdentifier>
 		</Filter>
 		<ResourceCompile Include="..\..\..\..\Unreal Engine 4.2\Engine\Source\Programs\UnrealHeaderTool\Resources\PCLaunch.rc">
 			<Filter>Resources</Filter>
@@ -89,7 +89,7 @@
 			<Filter>Resources</Filter>
 		</Manifest >
 		<Filter Include="Resources\UHTDebugging">
-			<UniqueIdentifier>{1C4B23B5-7048-46B1-B60B-21C27619FBB0}</UniqueIdentifier>
+			<UniqueIdentifier>{EAC9BD48-4C14-4BBE-8ADD-F89B10BEDFC4}</UniqueIdentifier>
 		</Filter>
 		<ClInclude Include="..\..\..\..\Unreal Engine 4.2\Engine\Source\Programs\UnrealHeaderTool\Resources\UHTDebugging\EnumOnlyHeader.h">
 			<Filter>Resources\UHTDebugging</Filter>
