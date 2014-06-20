@@ -12,8 +12,13 @@ AFlickeringLightBrightness::AFlickeringLightBrightness(const class FPostConstruc
 	RootComponent = lightComp;
 }
 
-
 void AFlickeringLightBrightness::Tick(float DeltaSeconds)
+{
+	Flicker();
+}
+
+
+void AFlickeringLightBrightness::Flicker()
 {
 	RandomBrightness = ((float)rand()) / ((float)(RAND_MAX / 5000.f));
 	lightComp->SetBrightness(RandomBrightness);
@@ -21,6 +26,5 @@ void AFlickeringLightBrightness::Tick(float DeltaSeconds)
 
 //void AFlickeringLightBrightness::Delay()
 //{
-//	GetWorldTimerManager().SetTimer(this, &AFlickeringLightBrightness::RandomNumber, 0.3f, true);
+//	GetWorldTimerManager().SetTimer(this, &AFlickeringLightBrightness::Flicker, 0.f, true);
 //}
-

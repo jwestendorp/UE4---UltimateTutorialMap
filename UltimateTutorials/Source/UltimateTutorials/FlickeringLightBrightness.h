@@ -13,10 +13,9 @@ class AFlickeringLightBrightness : public ALight
 {
 	GENERATED_UCLASS_BODY()
 
-		void Tick(float DeltaSeconds) OVERRIDE;
+		void Tick(float DeltaSeconds);
+		void Flicker();
 		/*void Delay();*/
-		/*void Flicker();
-		void RandomNumber();*/
 		float RandomBrightness;
 
 	public:
