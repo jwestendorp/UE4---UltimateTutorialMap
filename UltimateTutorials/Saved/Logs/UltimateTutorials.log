@@ -1,0 +1,116 @@
+Log file open, 06/20/14 23:54:49
+LogInit:Display: Running engine for game: UltimateTutorials
+LogUProjectInfo: Found 0 directories to search
+LogUProjectInfo: FillProjectInfo took 0.0087 seconds
+Running E:/UnrealEngine4/Unreal Engine 4.2/Engine/Binaries/DotNET/UnrealBuildTool.exe UltimateTutorialsEditor Development Win64 -project="E:/GitHub/UE4---UltimateTutorialMap/UltimateTutorials/UltimateTutorials.uproject" -editorrecompile -progress
+LogInit: Version: 4.2.0-0+UE4
+LogInit: Compiled (64-bit): Jun 13 2014 23:34:42
+LogInit: Build Configuration: Development
+LogInit: Branch Name: UE4
+LogInit: Command line:  
+LogInit: Base directory: E:/UnrealEngine4/Unreal Engine 4.2/Engine/Binaries/Win64/
+LogInit: Rocket: 0
+[2014.06.20-21.55.01:456][  0]LogTaskGraph: Started task graph with 3 named threads and 4 total threads.
+[2014.06.20-21.55.01:482][  0]LogOnline:Warning: No default platform service specified for OnlineSubsystem
+[2014.06.20-21.55.01:486][  0]LogInit: Presizing for 0 objects not considered by GC, pre-allocating 0 bytes.
+[2014.06.20-21.55.01:491][  0]LogInit: Object subsystem initialized
+[2014.06.20-21.55.01:492][  0]LogInit: Selected Device Profile: [Windows]
+[2014.06.20-21.55.01:492][  0]LogInit: Applying CVar settings loaded from the selected device profile: [Windows]
+[2014.06.20-21.55.01:494][  0]LogInit: Computer: DOMINIK
+[2014.06.20-21.55.01:494][  0]LogInit: User: Dominik
+[2014.06.20-21.55.01:495][  0]LogInit: CPU Page size=4096, Cores=4
+[2014.06.20-21.55.01:495][  0]LogInit: High frequency timer resolution =3.417993 MHz
+[2014.06.20-21.55.01:495][  0]LogMemory: Memory total: Physical=7.9GB (8GB approx) Virtual=131072.0GB
+[2014.06.20-21.55.01:495][  0]LogMemory: Platform Memory Stats for Windows
+[2014.06.20-21.55.01:495][  0]LogMemory: Process Physical Memory: 53.71 MB used, 53.71 MB peak
+[2014.06.20-21.55.01:495][  0]LogMemory: Process Virtual Memory: 27.89 MB used, 27.89 MB peak
+[2014.06.20-21.55.01:495][  0]LogMemory: Physical Memory: 2655.93 MB used, 8140.41 MB total
+[2014.06.20-21.55.01:495][  0]LogMemory: Virtual Memory: 305.32 MB used, 134217728.00 MB total
+[2014.06.20-21.55.01:519][  0]LogD3D11RHI: Found D3D11 adapter 0: NVIDIA GeForce GTX 660 Ti (Feature Level 11_0)
+[2014.06.20-21.55.01:519][  0]LogD3D11RHI: Adapter has 1989MB of dedicated video memory, 0MB of dedicated system memory, and 2048MB of shared system memory, 1 output[s]
+[2014.06.20-21.55.01:520][  0]LogD3D11RHI: Found D3D11 adapter 1: Microsoft Basic Render Driver (Feature Level 11_0)
+[2014.06.20-21.55.01:520][  0]LogD3D11RHI: Adapter has 0MB of dedicated video memory, 0MB of dedicated system memory, and 256MB of shared system memory, 0 output[s]
+[2014.06.20-21.55.01:520][  0]LogD3D11RHI: Chosen D3D11 Adapter Id = 0
+[2014.06.20-21.55.01:522][  0]LogRHI: Texture pool is 1361 MB (70% of 1945 MB)
+[2014.06.20-21.55.01:531][  0]LogD3D11RHI: Async texture creation enabled
+[2014.06.20-21.55.01:579][  0]LogTextLocalizationManager:Warning: The selected culture 'de_DE' is not available; falling back to 'en'
+[2014.06.20-21.55.01:620][  0]LogContentStreaming: Texture pool size is 0.000000MB
+[2014.06.20-21.55.02:068][  0]LogTargetPlatformManager:Display: Building Assets For Windows
+[2014.06.20-21.55.02:119][  0]LogTargetPlatformManager:Display: Building Assets For Windows
+[2014.06.20-21.55.02:140][  0]LogDerivedDataCache:Display: Max Cache Size: 512 MB
+[2014.06.20-21.55.02:140][  0]LogDerivedDataCache:Warning: Could not find memory cache ../../../../../GitHub/UE4---UltimateTutorialMap/UltimateTutorials/DerivedDataCache/Boot.ddc.
+[2014.06.20-21.55.02:140][  0]LogDerivedDataCache:Warning: Could not load Boot cache: ../../../../../GitHub/UE4---UltimateTutorialMap/UltimateTutorials/DerivedDataCache/Boot.ddc
+[2014.06.20-21.55.02:140][  0]LogDerivedDataCache: FDerivedDataBackendGraph:  Pak pak cache file ../../../../../GitHub/UE4---UltimateTutorialMap/UltimateTutorials/DerivedDataCache/DDC.ddp not found, will not use a pak cache.
+[2014.06.20-21.55.02:140][  0]LogDerivedDataCache: Unable to find inner node Pak for hierarchical cache Hierarchy.
+[2014.06.20-21.55.02:140][  0]LogDerivedDataCache: FDerivedDataBackendGraph:  EnginePak pak cache file ../../../Engine/DerivedDataCache/DDC.ddp not found, will not use a pak cache.
+[2014.06.20-21.55.02:140][  0]LogDerivedDataCache: Unable to find inner node EnginePak for hierarchical cache Hierarchy.
+[2014.06.20-21.55.02:152][  0]LogDerivedDataCache: Using Local data cache path ../../../Engine/DerivedDataCache: Writable
+[2014.06.20-21.55.02:152][  0]LogDerivedDataCache: Shared data cache path not found in *engine.ini, will not use an Shared cache.
+[2014.06.20-21.55.02:152][  0]LogDerivedDataCache: Unable to find inner node Shared for hierarchical cache Hierarchy.
+[2014.06.20-21.55.03:106][  0]LogMeshUtilities: No automatic mesh reduction module available
+[2014.06.20-21.55.03:106][  0]LogMeshUtilities: No automatic mesh merging module available
+[2014.06.20-21.55.08:854][  0]LogInit: WinSock: version 1.1 (2.2), MaxSocks=32767, MaxUdp=65467
+[2014.06.20-21.55.09:159][  0]LogStreaming:Warning: Failed to read file '../../../Engine/Content/Editor/Slate/Icons/ActorIcons/GroupActor_16x.png' error.
+[2014.06.20-21.55.09:159][  0]LogSlate: Could not find file for Slate resource: ../../../Engine/Content/Editor/Slate/Icons/ActorIcons/GroupActor_16x.png
+[2014.06.20-21.55.09:417][  0]LogStreaming:Warning: Failed to read file '../../../Engine/Content/Editor/Slate/Icons/ActorIcons/DecalActor_16x.png' error.
+[2014.06.20-21.55.09:417][  0]LogSlate: Could not find file for Slate resource: ../../../Engine/Content/Editor/Slate/Icons/ActorIcons/DecalActor_16x.png
+[2014.06.20-21.55.25:268][  0]UdpMessaging: Initializing bridge on interface 0.0.0.0:0 to multicast group 230.0.0.1:6666.
+[2014.06.20-21.55.25:327][  0]LogModuleManager:Warning: ModuleManager: Unable to load module '' because the file was not found.
+[2014.06.20-21.55.26:657][  0]LogWindowsTextInputMethodSystem:Error: Terminating failed while unadvising the language notification sink from the TSF source.
+[2014.06.20-21.55.26:657][  0]LogExit: Preparing to exit.
+[2014.06.20-21.55.27:385][  0]LogExit: Object subsystem successfully closed.
+[2014.06.20-21.55.27:414][  0]LogModuleManager: Shutting down and abandoning module ImageWrapper (87)
+[2014.06.20-21.55.27:414][  0]LogModuleManager: Shutting down and abandoning module OnlineBlueprintSupport (86)
+[2014.06.20-21.55.27:414][  0]LogModuleManager: Shutting down and abandoning module FunctionalTesting (85)
+[2014.06.20-21.55.27:414][  0]LogModuleManager: Shutting down and abandoning module CollisionAnalyzer (84)
+[2014.06.20-21.55.27:414][  0]LogModuleManager: Shutting down and abandoning module WorkspaceMenuStructure (83)
+[2014.06.20-21.55.27:414][  0]LogModuleManager: Shutting down and abandoning module MessageLog (82)
+[2014.06.20-21.55.27:414][  0]LogModuleManager: Shutting down and abandoning module Slate (81)
+[2014.06.20-21.55.27:414][  0]LogModuleManager: Shutting down and abandoning module EditorStyle (80)
+[2014.06.20-21.55.27:415][  0]LogModuleManager: Shutting down and abandoning module SessionServices (79)
+[2014.06.20-21.55.27:415][  0]LogModuleManager: Shutting down and abandoning module SourceCodeAccess (78)
+[2014.06.20-21.55.27:415][  0]LogModuleManager: Shutting down and abandoning module HeadMountedDisplay (77)
+[2014.06.20-21.55.27:415][  0]LogModuleManager: Shutting down and abandoning module XAudio2 (76)
+[2014.06.20-21.55.27:415][  0]LogModuleManager: Shutting down and abandoning module Networking (74)
+[2014.06.20-21.55.27:415][  0]LogModuleManager: Shutting down and abandoning module Core (73)
+[2014.06.20-21.55.27:415][  0]LogModuleManager: Shutting down and abandoning module KismetCompiler (72)
+[2014.06.20-21.55.27:415][  0]LogModuleManager: Shutting down and abandoning module PhysXFormats (71)
+[2014.06.20-21.55.27:415][  0]LogModuleManager: Shutting down and abandoning module MeshUtilities (70)
+[2014.06.20-21.55.27:415][  0]LogModuleManager: Shutting down and abandoning module DerivedDataCache (69)
+[2014.06.20-21.55.27:676][  0]LogDerivedDataCache: Shutdown
+[2014.06.20-21.55.27:676][  0]LogModuleManager: Shutting down and abandoning module ShaderFormatOpenGL (68)
+[2014.06.20-21.55.27:676][  0]LogModuleManager: Shutting down and abandoning module ShaderFormatD3D (67)
+[2014.06.20-21.55.27:676][  0]LogModuleManager: Shutting down and abandoning module TextureFormatUncompressed (66)
+[2014.06.20-21.55.27:676][  0]LogModuleManager: Shutting down and abandoning module TextureFormatPVR (65)
+[2014.06.20-21.55.27:676][  0]LogModuleManager: Shutting down and abandoning module TextureFormatDXT (64)
+[2014.06.20-21.55.27:676][  0]LogModuleManager: Shutting down and abandoning module AudioFormatOpus (63)
+[2014.06.20-21.55.27:676][  0]LogModuleManager: Shutting down and abandoning module AudioFormatOgg (62)
+[2014.06.20-21.55.27:676][  0]LogModuleManager: Shutting down and abandoning module AudioFormatADPCM (61)
+[2014.06.20-21.55.27:676][  0]LogModuleManager: Shutting down and abandoning module Messaging (60)
+[2014.06.20-21.55.27:676][  0]LogModuleManager: Shutting down and abandoning module IOSTargetPlatform (59)
+[2014.06.20-21.55.27:676][  0]LogModuleManager: Shutting down and abandoning module WindowsTargetPlatform (58)
+[2014.06.20-21.55.27:676][  0]LogModuleManager: Shutting down and abandoning module WindowsServerTargetPlatform (57)
+[2014.06.20-21.55.27:676][  0]LogModuleManager: Shutting down and abandoning module WindowsNoEditorTargetPlatform (56)
+[2014.06.20-21.55.27:676][  0]LogModuleManager: Shutting down and abandoning module WindowsClientTargetPlatform (55)
+[2014.06.20-21.55.27:676][  0]LogModuleManager: Shutting down and abandoning module TargetPlatform (54)
+[2014.06.20-21.55.27:676][  0]LogModuleManager: Shutting down and abandoning module InputCore (53)
+[2014.06.20-21.55.27:676][  0]LogModuleManager: Shutting down and abandoning module Settings (52)
+[2014.06.20-21.55.27:676][  0]LogModuleManager: Shutting down and abandoning module DesktopPlatform (49)
+[2014.06.20-21.55.27:676][  0]LogModuleManager: Shutting down and abandoning module TextureCompressor (48)
+[2014.06.20-21.55.27:676][  0]LogModuleManager: Shutting down and abandoning module ShaderCore (47)
+[2014.06.20-21.55.27:676][  0]LogModuleManager: Shutting down and abandoning module OpenGLDrv (46)
+[2014.06.20-21.55.27:676][  0]LogModuleManager: Shutting down and abandoning module D3D11RHI (45)
+[2014.06.20-21.55.27:676][  0]LogModuleManager: Shutting down and abandoning module SlateRHIRenderer (44)
+[2014.06.20-21.55.27:676][  0]LogModuleManager: Shutting down and abandoning module Renderer (43)
+[2014.06.20-21.55.27:676][  0]LogModuleManager: Shutting down and abandoning module Engine (42)
+[2014.06.20-21.55.27:676][  0]LogModuleManager: Shutting down and abandoning module ScriptPlugin (40)
+[2014.06.20-21.55.27:676][  0]LogModuleManager: Shutting down and abandoning module WindowsMoviePlayer (37)
+[2014.06.20-21.55.27:677][  0]LogModuleManager: Shutting down and abandoning module ExampleDeviceProfileSelector (32)
+[2014.06.20-21.55.27:677][  0]LogModuleManager: Shutting down and abandoning module UdpMessaging (25)
+[2014.06.20-21.55.27:778][  0]LogModuleManager: Shutting down and abandoning module CoreUObject (5)
+[2014.06.20-21.55.27:778][  0]LogModuleManager: Shutting down and abandoning module NetworkFile (4)
+[2014.06.20-21.55.27:778][  0]LogModuleManager: Shutting down and abandoning module StreamingFile (3)
+[2014.06.20-21.55.27:778][  0]LogModuleManager: Shutting down and abandoning module SandboxFile (2)
+[2014.06.20-21.55.27:778][  0]LogModuleManager: Shutting down and abandoning module PakFile (1)
+[2014.06.20-21.55.27:778][  0]LogExit: Exiting.
+[2014.06.20-21.55.27:780][  0]Log file closed, 06/20/14 23:55:27

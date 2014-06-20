@@ -334,6 +334,10 @@
 		<None Include="..\..\Config\DefaultInput.ini" />
 		<ClCompile Include="..\..\Source\UltimateTutorials\DayTimeLight.cpp" />
 		<ClInclude Include="..\..\Source\UltimateTutorials\DayTimeLight.h" />
+		<ClCompile Include="..\..\Source\UltimateTutorials\FlickeringLightBrightness.cpp" />
+		<ClInclude Include="..\..\Source\UltimateTutorials\FlickeringLightBrightness.h" />
+		<ClCompile Include="..\..\Source\UltimateTutorials\FlickeringLightVisibility.cpp" />
+		<ClInclude Include="..\..\Source\UltimateTutorials\FlickeringLightVisibility.h" />
 		<None Include="..\..\Source\UltimateTutorials\UltimateTutorials.Build.cs" />
 		<ClCompile Include="..\..\Source\UltimateTutorials\UltimateTutorials.cpp" />
 		<ClInclude Include="..\..\Source\UltimateTutorials\UltimateTutorials.h" />

@@ -5,37 +5,37 @@
 		<None Include="..\..\..\..\Unreal Engine 4.2\Engine\Source\Programs\SlateViewer\SlateViewer.Target.cs" />
 		<None Include="..\..\..\..\Unreal Engine 4.2\Engine\Source\Programs\SlateViewer\SlateViewer.Build.cs" />
 		<Filter Include="Private">
-			<UniqueIdentifier>{53785F46-9DAF-43A3-89F6-46676E98FE47}</UniqueIdentifier>
+			<UniqueIdentifier>{C93000A5-AF8F-4B37-97FE-CDBC1EDA68F8}</UniqueIdentifier>
 		</Filter>
 		<ClCompile Include="..\..\..\..\Unreal Engine 4.2\Engine\Source\Programs\SlateViewer\Private\SlateViewerApp.cpp">
 			<Filter>Private</Filter>
 		</ClCompile >
 		<Filter Include="Private\IOS">
-			<UniqueIdentifier>{81E54E63-D544-464B-9157-CAB460C34131}</UniqueIdentifier>
+			<UniqueIdentifier>{5BF90577-6D59-4E45-BB87-A8AA25570B97}</UniqueIdentifier>
 		</Filter>
 		<ClCompile Include="..\..\..\..\Unreal Engine 4.2\Engine\Source\Programs\SlateViewer\Private\IOS\IOSSlateViewerMain.cpp">
 			<Filter>Private\IOS</Filter>
 		</ClCompile >
 		<Filter Include="Private\Linux">
-			<UniqueIdentifier>{8FA073DD-67D2-4C3E-98EF-DCDA6456451F}</UniqueIdentifier>
+			<UniqueIdentifier>{C5BC9F49-FEF6-4450-904B-DB1D82C999FF}</UniqueIdentifier>
 		</Filter>
 		<ClCompile Include="..\..\..\..\Unreal Engine 4.2\Engine\Source\Programs\SlateViewer\Private\Linux\SlateViewerMainLinux.cpp">
 			<Filter>Private\Linux</Filter>
 		</ClCompile >
 		<Filter Include="Private\Mac">
-			<UniqueIdentifier>{109EB10B-A7F4-466E-B360-E5E2632051B2}</UniqueIdentifier>
+			<UniqueIdentifier>{0DD69850-A478-4338-8A27-9782FA8833AA}</UniqueIdentifier>
 		</Filter>
 		<ClCompile Include="..\..\..\..\Unreal Engine 4.2\Engine\Source\Programs\SlateViewer\Private\Mac\SlateViewerMainMac.cpp">
 			<Filter>Private\Mac</Filter>
 		</ClCompile >
 		<Filter Include="Private\Windows">
-			<UniqueIdentifier>{633CDC29-2CFD-487D-8D4A-98F8AC7426F9}</UniqueIdentifier>
+			<UniqueIdentifier>{E281E8E2-BEA2-4C1D-966B-9E21FB044E83}</UniqueIdentifier>
 		</Filter>
 		<ClCompile Include="..\..\..\..\Unreal Engine 4.2\Engine\Source\Programs\SlateViewer\Private\Windows\SlateViewerMainWindows.cpp">
 			<Filter>Private\Windows</Filter>
 		</ClCompile >
 		<Filter Include="Public">
-			<UniqueIdentifier>{3373FEE5-BB50-4001-A528-9A0DF2664880}</UniqueIdentifier>
+			<UniqueIdentifier>{BC7C3A5B-13F3-428A-8B8C-EA98F58D1F7B}</UniqueIdentifier>
 		</Filter>
 		<ClInclude Include="..\..\..\..\Unreal Engine 4.2\Engine\Source\Programs\SlateViewer\Public\SlateViewer.h">
 			<Filter>Public</Filter>
@@ -44,10 +44,10 @@
 			<Filter>Public</Filter>
 		</ClInclude >
 		<Filter Include="Resources">
-			<UniqueIdentifier>{37CCFE00-E627-40A0-983E-AAA8A5775A00}</UniqueIdentifier>
+			<UniqueIdentifier>{10D40C39-B931-47B4-999E-6BBF3CDBE993}</UniqueIdentifier>
 		</Filter>
 		<Filter Include="Resources\Windows">
-			<UniqueIdentifier>{3624F427-E635-4CD3-B69F-0A6C9A00DCC4}</UniqueIdentifier>
+			<UniqueIdentifier>{29E61EE8-6062-4685-AE63-025B5C55C244}</UniqueIdentifier>
 		</Filter>
 		<Manifest Include="..\..\..\..\Unreal Engine 4.2\Engine\Source\Programs\SlateViewer\Resources\Windows\Debug-PCLaunch-Win32.manifest">
 			<Filter>Resources\Windows</Filter>

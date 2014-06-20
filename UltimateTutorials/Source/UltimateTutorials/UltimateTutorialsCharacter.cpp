@@ -57,6 +57,8 @@ void AUltimateTutorialsCharacter::SetupPlayerInputComponent(class UInputComponen
 	InputComponent->BindAction("Sprint", IE_Released, this, &AUltimateTutorialsCharacter::Jog);
 	InputComponent->BindAction("Jog", IE_Pressed, this, &AUltimateTutorialsCharacter::Jog);
 
+	InputComponent->BindAction("SlowMo", IE_Pressed, this, &AUltimateTutorialsCharacter::SlowMo);
+
 	InputComponent->BindAction("ZoomIn", IE_Pressed, this, &AUltimateTutorialsCharacter::ZoomIn);
 	InputComponent->BindAction("ZoomOut",  IE_Pressed, this, &AUltimateTutorialsCharacter::ZoomOut);
 
@@ -193,3 +195,16 @@ void AUltimateTutorialsCharacter::ZoomOut()
 	}
 }
 
+void AUltimateTutorialsCharacter::SlowMo()
+{
+	bSlowMo = !bSlowMo;
+
+	if (bSlowMo == true)
+	{
+		UGameplayStatics::SetGlobalTimeDilation(this, 0.3f);
+	}
+	else
+	{
+		UGameplayStatics::SetGlobalTimeDilation(this, 1.f);
+	}
+}

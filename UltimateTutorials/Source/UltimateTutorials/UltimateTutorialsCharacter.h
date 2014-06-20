@@ -25,6 +25,9 @@ class AUltimateTutorialsCharacter : public ACharacter
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category=Camera)
 	float BaseLookUpRate;
 
+
+	
+
 protected:
 
 	/** Called for forwards/backward input */
@@ -66,6 +69,10 @@ protected:
 		void ZoomOut();
 		void updateCamera();
 
+		//Slow-Mo
+		void SlowMo();
+		bool bSlowMo;
+		
 protected:
 	// APawn interface
 	virtual void SetupPlayerInputComponent(class UInputComponent* InputComponent) OVERRIDE;
