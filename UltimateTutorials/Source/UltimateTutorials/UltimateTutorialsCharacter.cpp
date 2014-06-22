@@ -54,7 +54,7 @@ void AUltimateTutorialsCharacter::SetupPlayerInputComponent(class UInputComponen
 	InputComponent->BindAction("Jump", IE_Pressed, this, &ACharacter::Jump);
 	
 	InputComponent->BindAction("Sprint", IE_Pressed, this, &AUltimateTutorialsCharacter::Sprint);
-	InputComponent->BindAction("Sprint", IE_Released, this, &AUltimateTutorialsCharacter::Jog);
+	InputComponent->BindAction("Sprint", IE_Released, this, &AUltimateTutorialsCharacter::SprintEnd);
 	InputComponent->BindAction("Jog", IE_Pressed, this, &AUltimateTutorialsCharacter::Jog);
 
 	InputComponent->BindAction("SlowMo", IE_Pressed, this, &AUltimateTutorialsCharacter::SlowMo);
@@ -130,7 +130,14 @@ void AUltimateTutorialsCharacter::MoveRight(float Value)
 
 void AUltimateTutorialsCharacter::Sprint()
 {
-	CharacterMovement->MaxWalkSpeed = 1200.f;
+	Speed = 1200.f;
+	CharacterMovement->MaxWalkSpeed = Speed;
+}
+
+void AUltimateTutorialsCharacter::SprintEnd()
+{
+	Speed = LastSpeed;
+	CharacterMovement->MaxWalkSpeed = Speed;
 }
 
 void AUltimateTutorialsCharacter::Jog()
@@ -139,7 +146,9 @@ void AUltimateTutorialsCharacter::Jog()
 
 	if (bJogging)
 	{
-		CharacterMovement->MaxWalkSpeed = 800.f;
+		Speed = 800.f;
+		CharacterMovement->MaxWalkSpeed = Speed;
+		LastSpeed = Speed;
 	}
 	else
 	{
@@ -149,11 +158,15 @@ void AUltimateTutorialsCharacter::Jog()
 
 void AUltimateTutorialsCharacter::Walk()
 {
-	CharacterMovement->MaxWalkSpeed = 300.f;
+	Speed = 300.f;
+	CharacterMovement->MaxWalkSpeed = Speed;
+	LastSpeed = Speed;
 }
 
 void AUltimateTutorialsCharacter::BeginPlay()
 {
+	LastSpeed = 300.f;
+	bIsInFPS = false;
 	CameraBoom->AttachTo(Mesh, "fpsHead");
 	CameraBoom->TargetArmLength = 0.f;
 	bUseControllerRotationYaw = true;
@@ -167,6 +180,7 @@ void AUltimateTutorialsCharacter::ZoomIn()
 
 	if (CameraBoom->TargetArmLength > 50.f)
 	{
+		bIsInFPS = false;
 		CameraBoom->TargetArmLength -= Zoom;
 		CameraBoom->AttachTo(RootComponent);
 		CameraBoom->SetRelativeLocation(TpsOffset);
@@ -174,6 +188,7 @@ void AUltimateTutorialsCharacter::ZoomIn()
 	}
 	else
 	{
+		bIsInFPS = true;
 		CameraBoom->AttachTo(Mesh, "fpsHead");
 		CameraBoom->TargetArmLength = 0.f;
 		bUseControllerRotationYaw = true;

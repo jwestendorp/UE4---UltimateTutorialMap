@@ -53,21 +53,26 @@ protected:
 
 	//Sprinting
 	void Sprint();
+	void SprintEnd();
 	void Jog();
 	void Walk();
+	bool bJogging;
+	float Speed;
+	float LastSpeed;
 
 	//common Voids
 	virtual void BeginPlay();
 	
 	//Zoomable Third Person
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = Variables)
-		bool bJogging;
 		float Zoom;
 		FVector FpsOffset = FVector(-2.f, -7.f, 0.f);
 		FVector TpsOffset = FVector(0.f, 30.f, 80.f);
 		void ZoomIn();
 		void ZoomOut();
 		void updateCamera();
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = Variables)
+		bool bIsInFPS;
 
 		//Slow-Mo
 		void SlowMo();
