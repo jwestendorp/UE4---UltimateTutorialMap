@@ -25,6 +25,8 @@ class AUltimateTutorialsCharacter : public ACharacter
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category=Camera)
 	float BaseLookUpRate;
 
+	
+
 
 	
 
@@ -64,19 +66,26 @@ protected:
 	virtual void BeginPlay();
 	
 	//Zoomable Third Person
-	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = Variables)
-		float Zoom;
-		FVector FpsOffset = FVector(-2.f, -7.f, 0.f);
-		FVector TpsOffset = FVector(0.f, 30.f, 80.f);
-		void ZoomIn();
-		void ZoomOut();
-		void updateCamera();
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = Variables)
+	float Zoom;
+	FVector FpsOffset = FVector(-2.f, -7.f, 0.f);
+	FVector TpsOffset = FVector(0.f, 30.f, 80.f);
+	void ZoomIn();
+	void ZoomOut();
+	void updateCamera();
+
+	UPROPERTY(VisibleAnywhere, BlueprintReadWrite, Category = Variables)
 		bool bIsInFPS;
 
 		//Slow-Mo
 		void SlowMo();
 		bool bSlowMo;
+
+	//HP, Death, Checkpoint, Respawn
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = Variables)
+		int32 Health;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = Variables)
+		int32 DamageTaken;
+
 		
 protected:
 	// APawn interface

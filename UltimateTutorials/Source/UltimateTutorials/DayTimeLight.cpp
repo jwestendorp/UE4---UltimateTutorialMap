@@ -5,11 +5,14 @@
 
 
 ADayTimeLight::ADayTimeLight(const class FPostConstructInitializeProperties& PCIP)
-	: Super(PCIP)
+	: Super(PCIP.SetDefaultSubobjectClass<UDirectionalLightComponent>(TEXT("LightComponent0")))
 {
 	PrimaryActorTick.bCanEverTick = true;
-	lightComp = PCIP.CreateDefaultSubobject<UDirectionalLightComponent>(this, "DirLight");
-	RootComponent = lightComp;
+	UDirectionalLightComponent* DirLight = CastChecked<UDirectionalLightComponent>(LightComponent);
+	RootComponent = DirLight;
+	SunSpeed = 0.7f;
+	DirLight->SetMobility(EComponentMobility::Movable);
+	DirLight->SetAffectDynamicIndirectLighting(true);
 }
 
 void ADayTimeLight::Tick(float DeltaSeconds){
@@ -24,13 +27,13 @@ void ADayTimeLight::Tick(float DeltaSeconds){
 	SunRot.Roll = MyRot.Y;
 	SunRot.Yaw = MyRot.Z;
 	SetActorRotation(SunRot);
+	
 
 }
 
 void ADayTimeLight::BeginPlay()
 {
 	Super::BeginPlay();
-	lightComp->SetMobility(EComponentMobility::Movable);
 	FRotator SunRot = GetActorRotation();
 	MyRot.X = SunRot.Pitch;
 	MyRot.Y = SunRot.Roll;

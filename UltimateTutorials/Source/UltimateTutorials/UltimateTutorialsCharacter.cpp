@@ -17,6 +17,10 @@ AUltimateTutorialsCharacter::AUltimateTutorialsCharacter(const class FPostConstr
 	BaseLookUpRate = 45.f;
 	Zoom = 50.f;
 
+	//damage, checkpoint, respawn
+	Health = 1000.f;
+	DamageTaken = 0.f;
+
 	// Don't rotate when the controller rotates. Let that just affect the camera.
 	bUseControllerRotationPitch = false;
 	bUseControllerRotationYaw = false;
@@ -166,7 +170,7 @@ void AUltimateTutorialsCharacter::Walk()
 void AUltimateTutorialsCharacter::BeginPlay()
 {
 	LastSpeed = 300.f;
-	bIsInFPS = false;
+	bIsInFPS = true;
 	CameraBoom->AttachTo(Mesh, "fpsHead");
 	CameraBoom->TargetArmLength = 0.f;
 	bUseControllerRotationYaw = true;
@@ -202,7 +206,7 @@ void AUltimateTutorialsCharacter::ZoomOut()
 
 	if (CameraBoom->TargetArmLength < 300.f)
 	{
-		
+		bIsInFPS = false;
 		CameraBoom->TargetArmLength += Zoom;
 		CameraBoom->AttachTo(RootComponent);
 		CameraBoom->SetRelativeLocation(TpsOffset);

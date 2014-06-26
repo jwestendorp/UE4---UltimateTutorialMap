@@ -8,21 +8,33 @@
 /**
  * 
  */
-UCLASS()
+UCLASS(ClassGroup = (Lights, DayTimeLights), MinimalAPI, meta = (ChildCanTick))
 class ADayTimeLight : public ALight
 {
-	GENERATED_UCLASS_BODY()
-		void Tick(float DeltaSeconds) OVERRIDE;
-		virtual void BeginPlay() OVERRIDE;
-		float SunSpeed = 0.5f;
-		
 
+		
+	
+		GENERATED_UCLASS_BODY()
+			
+		TSubobjectPtr<class UArrowComponent> ArrowComp;
+
+			
+		void Tick(float DeltaSeconds) OVERRIDE;
+	
+
+		virtual void BeginPlay() OVERRIDE;
+
+		UPROPERTY(VisibleAnywhere, BlueprintReadWrite, Category = "Variable")
+		float SunSpeed;
+		
 	public:
-		UPROPERTY(VisibleAnywhere, Category = "Light")
-		TSubobjectPtr<UDirectionalLightComponent> lightComp;
+		TSubobjectPtr<UDirectionalLightComponent> DirLight;
+
 	
 	private:
 		FVector MyRot;
 	
+
+		
 
 };
