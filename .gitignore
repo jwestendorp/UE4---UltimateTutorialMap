@@ -1,0 +1,11 @@
+# Visual Studio Project Files
+*.sdf
+*.sln
+*.suo
+
+# Folders
+Binaries/
+Build/
+DerivedDataCache/
+Intermediate/
+Saved/
