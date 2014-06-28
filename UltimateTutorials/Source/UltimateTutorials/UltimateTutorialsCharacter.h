@@ -4,31 +4,47 @@
 #include "GameFramework/SpringArmComponent.h"
 #include "UltimateTutorialsCharacter.generated.h"
 
+UENUM(BlueprintType, Category = "Weapons")
+enum EWeaponTypes
+{
+	None,
+	G36C
+};
+
+
+
 UCLASS(config=Game)
 class AUltimateTutorialsCharacter : public ACharacter
 {
 	GENERATED_UCLASS_BODY()
 
+
+
 	/** Camera boom positioning the camera behind the character */
-	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category=Camera)
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = Camera)
 	TSubobjectPtr<class USpringArmComponent> CameraBoom;
 
 	/** Follow camera */
-	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category=Camera)
-	TSubobjectPtr<class UCameraComponent> FollowCamera;
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = Camera)
+		TSubobjectPtr<class UCameraComponent> FollowCamera;
 
 	/** Base turn rate, in deg/sec. Other scaling may affect final turn rate. */
-	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category=Camera)
-	float BaseTurnRate;
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = Camera)
+		float BaseTurnRate;
 
 	/** Base look up/down rate, in deg/sec. Other scaling may affect final rate. */
-	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category=Camera)
-	float BaseLookUpRate;
-
-	
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = Camera)
+		float BaseLookUpRate;
 
 
-	
+protected:
+
+
+	// APawn interface
+	virtual void SetupPlayerInputComponent(class UInputComponent* InputComponent) OVERRIDE;
+	// End of APawn interface
+
+
 
 protected:
 
@@ -38,14 +54,14 @@ protected:
 	/** Called for side to side input */
 	void MoveRight(float Value);
 
-	/** 
-	 * Called via input to turn at a given rate. 
+	/**
+	 * Called via input to turn at a given rate.
 	 * @param Rate	This is a normalized rate, i.e. 1.0 means 100% of desired turn rate
 	 */
 	void TurnAtRate(float Rate);
 
 	/**
-	 * Called via input to turn look up/down at a given rate. 
+	 * Called via input to turn look up/down at a given rate.
 	 * @param Rate	This is a normalized rate, i.e. 1.0 means 100% of desired turn rate
 	 */
 	void LookUpAtRate(float Rate);
@@ -59,8 +75,45 @@ protected:
 	void Jog();
 	void Walk();
 	bool bJogging;
+	UPROPERTY(VisibleAnywhere, BlueprintReadWrite, Category = "Variables")
+	bool bAllowInput;
 	float Speed;
 	float LastSpeed;
+
+
+
+
+
+	////Shooting
+	//UPROPERTY(EditAnywhere, Category = "Weapons", BlueprintReadWrite)
+	//UStaticMesh* WeaponMesh;
+	//UPROPERTY(EditAnywhere, Category = "Weapons", BlueprintReadWrite)
+	//UParticleSystem* MuzzleFlash;
+
+	//bool bPressed;
+	//bool bPlaynAnim;
+	//
+	//float RateOfFire;
+	//float HeatSpeed;
+	//float HeatLevel;
+	//float MaxSpread;
+	//float Spread;
+	//float SpreadChange;
+	//float HiRot;
+	//float HiRotTarget;
+	//float HiRotSpeed;
+	//float HiRotPlayer;
+	//float GunDeltaTime;
+	//
+	//int32 AmmoNow;
+	//int32 AmmoMax;
+	//int32 DamageMin;
+	//int32 DamageMax;
+
+	//UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Weapons")
+	//void ChangeWeapon_Implementation(EWeaponTypes WeaponType);
+
+
 
 	//common Voids
 	virtual void BeginPlay();
@@ -73,23 +126,20 @@ protected:
 	void ZoomOut();
 	void updateCamera();
 
-	UPROPERTY(VisibleAnywhere, BlueprintReadWrite, Category = Variables)
+	UPROPERTY(VisibleAnywhere, BlueprintReadWrite, Category = "ZoomTPS")
 		bool bIsInFPS;
 
-		//Slow-Mo
-		void SlowMo();
-		bool bSlowMo;
+	//Slow-Mo
+	void SlowMo();
+	bool bSlowMo;
 
 	//HP, Death, Checkpoint, Respawn
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = Variables)
-		int32 Health;
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = Variables)
-		int32 DamageTaken;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "DmgSystem")
+	int32 Health;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "DmgSystem")
+	int32 DamageTaken;
+public:
+	UFUNCTION(BlueprintNativeEvent, Category = "DmgSystem")
+		void TakeDmg(int32 Damage);
 
-		
-protected:
-	// APawn interface
-	virtual void SetupPlayerInputComponent(class UInputComponent* InputComponent) OVERRIDE;
-	// End of APawn interface
 };
-

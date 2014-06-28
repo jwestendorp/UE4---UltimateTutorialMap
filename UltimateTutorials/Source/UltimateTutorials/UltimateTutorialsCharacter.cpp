@@ -17,6 +17,10 @@ AUltimateTutorialsCharacter::AUltimateTutorialsCharacter(const class FPostConstr
 	BaseLookUpRate = 45.f;
 	Zoom = 50.f;
 
+
+	////shooting
+	//G36CSpeed = 4.f;
+
 	//damage, checkpoint, respawn
 	Health = 1000.f;
 	DamageTaken = 0.f;
@@ -82,6 +86,7 @@ void AUltimateTutorialsCharacter::SetupPlayerInputComponent(class UInputComponen
 }
 
 
+
 void AUltimateTutorialsCharacter::TouchStarted(ETouchIndex::Type FingerIndex, FVector Location)
 {
 	// jump, but only on the first touch
@@ -105,7 +110,7 @@ void AUltimateTutorialsCharacter::LookUpAtRate(float Rate)
 
 void AUltimateTutorialsCharacter::MoveForward(float Value)
 {
-	if ((Controller != NULL) && (Value != 0.0f))
+	if ((Controller != NULL) && (Value != 0.0f) && bAllowInput == true)
 	{
 		// find out which way is forward
 		const FRotator Rotation = Controller->GetControlRotation();
@@ -119,7 +124,7 @@ void AUltimateTutorialsCharacter::MoveForward(float Value)
 
 void AUltimateTutorialsCharacter::MoveRight(float Value)
 {
-	if ( (Controller != NULL) && (Value != 0.0f) )
+	if ((Controller != NULL) && (Value != 0.0f) && bAllowInput == true)
 	{
 		// find out which way is right
 		const FRotator Rotation = Controller->GetControlRotation();
@@ -175,6 +180,7 @@ void AUltimateTutorialsCharacter::BeginPlay()
 	CameraBoom->TargetArmLength = 0.f;
 	bUseControllerRotationYaw = true;
 	CameraBoom->SetRelativeLocation(FpsOffset);
+	bAllowInput = true;
 }
 
 
@@ -226,4 +232,9 @@ void AUltimateTutorialsCharacter::SlowMo()
 	{
 		UGameplayStatics::SetGlobalTimeDilation(this, 1.f);
 	}
+}
+
+void TakeDmg_Implementation(int32 Damage)
+{
+	// your code here
 }
