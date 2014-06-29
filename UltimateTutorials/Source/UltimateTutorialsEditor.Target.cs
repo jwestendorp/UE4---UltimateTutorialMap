@@ -20,6 +20,6 @@ public class UltimateTutorialsEditorTarget : TargetRules
 		ref List<string> OutExtraModuleNames
 		)
 	{
-		OutExtraModuleNames.Add("UltimateTutorials");
+        OutExtraModuleNames.Add("UltimateTutorials");
 	}
 }

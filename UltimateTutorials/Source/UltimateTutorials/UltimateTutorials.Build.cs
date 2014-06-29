@@ -7,5 +7,8 @@ public class UltimateTutorials : ModuleRules
 	public UltimateTutorials(TargetInfo Target)
 	{
 		PublicDependencyModuleNames.AddRange(new string[] { "Core", "CoreUObject", "Engine", "InputCore" });
+
+		MinFilesUsingPrecompiledHeaderOverride = 1;
+		bFasterWithoutUnity = true;
 	}
 }
