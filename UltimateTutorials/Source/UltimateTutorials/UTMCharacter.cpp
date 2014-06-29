@@ -1,12 +1,12 @@
 // Copyright 1998-2014 Epic Games, Inc. All Rights Reserved.
 
 #include "UltimateTutorials.h"
-#include "UltimateTutorialsCharacter.h"
+#include "UTMCharacter.h"
 
 //////////////////////////////////////////////////////////////////////////
-// AUltimateTutorialsCharacter
+// AUTMCharacter
 
-AUltimateTutorialsCharacter::AUltimateTutorialsCharacter(const class FPostConstructInitializeProperties& PCIP)
+AUTMCharacter::AUTMCharacter(const class FPostConstructInitializeProperties& PCIP)
 	: Super(PCIP)
 {
 	// Set size for collision capsule
@@ -16,14 +16,6 @@ AUltimateTutorialsCharacter::AUltimateTutorialsCharacter(const class FPostConstr
 	BaseTurnRate = 45.f;
 	BaseLookUpRate = 45.f;
 	Zoom = 50.f;
-
-
-	////shooting
-	//G36CSpeed = 4.f;
-
-	//damage, checkpoint, respawn
-	Health = 1000.f;
-	DamageTaken = 0.f;
 
 	// Don't rotate when the controller rotates. Let that just affect the camera.
 	bUseControllerRotationPitch = false;
@@ -36,7 +28,15 @@ AUltimateTutorialsCharacter::AUltimateTutorialsCharacter(const class FPostConstr
 	CharacterMovement->JumpZVelocity = 600.f;
 	CharacterMovement->AirControl = 0.2f;
 	CharacterMovement->MaxWalkSpeed = 300.f;
+	
+	//shooting
+	//G36CSpeed = 4.f;
 
+	//damage, checkpoint, respawn
+	Health = 1000.f;
+	DamageTaken = 0.f;
+
+	
 	// Create a camera boom (pulls in towards the player if there is a collision)
 	CameraBoom = PCIP.CreateDefaultSubobject<USpringArmComponent>(this, TEXT("CameraBoom"));
 	CameraBoom->AttachTo(RootComponent);
@@ -55,39 +55,37 @@ AUltimateTutorialsCharacter::AUltimateTutorialsCharacter(const class FPostConstr
 //////////////////////////////////////////////////////////////////////////
 // Input
 
-void AUltimateTutorialsCharacter::SetupPlayerInputComponent(class UInputComponent* InputComponent)
+void AUTMCharacter::SetupPlayerInputComponent(class UInputComponent* InputComponent)
 {
 	// Set up gameplay key bindings
 	check(InputComponent);
 	InputComponent->BindAction("Jump", IE_Pressed, this, &ACharacter::Jump);
-	
-	InputComponent->BindAction("Sprint", IE_Pressed, this, &AUltimateTutorialsCharacter::Sprint);
-	InputComponent->BindAction("Sprint", IE_Released, this, &AUltimateTutorialsCharacter::SprintEnd);
-	InputComponent->BindAction("Jog", IE_Pressed, this, &AUltimateTutorialsCharacter::Jog);
 
-	InputComponent->BindAction("SlowMo", IE_Pressed, this, &AUltimateTutorialsCharacter::SlowMo);
+	InputComponent->BindAction("Sprint", IE_Pressed, this, &AUTMCharacter::Sprint);
+	InputComponent->BindAction("Sprint", IE_Released, this, &AUTMCharacter::SprintEnd);
+	InputComponent->BindAction("Jog", IE_Pressed, this, &AUTMCharacter::Jog);
 
-	InputComponent->BindAction("ZoomIn", IE_Pressed, this, &AUltimateTutorialsCharacter::ZoomIn);
-	InputComponent->BindAction("ZoomOut",  IE_Pressed, this, &AUltimateTutorialsCharacter::ZoomOut);
+	InputComponent->BindAction("SlowMo", IE_Pressed, this, &AUTMCharacter::SlowMo);
 
-	InputComponent->BindAxis("MoveForward", this, &AUltimateTutorialsCharacter::MoveForward);
-	InputComponent->BindAxis("MoveRight", this, &AUltimateTutorialsCharacter::MoveRight);
+	InputComponent->BindAction("ZoomIn", IE_Pressed, this, &AUTMCharacter::ZoomIn);
+	InputComponent->BindAction("ZoomOut", IE_Pressed, this, &AUTMCharacter::ZoomOut);
+
+	InputComponent->BindAxis("MoveForward", this, &AUTMCharacter::MoveForward);
+	InputComponent->BindAxis("MoveRight", this, &AUTMCharacter::MoveRight);
 
 	// We have 2 versions of the rotation bindings to handle different kinds of devices differently
 	// "turn" handles devices that provide an absolute delta, such as a mouse.
 	// "turnrate" is for devices that we choose to treat as a rate of change, such as an analog joystick
 	InputComponent->BindAxis("Turn", this, &APawn::AddControllerYawInput);
-	InputComponent->BindAxis("TurnRate", this, &AUltimateTutorialsCharacter::TurnAtRate);
+	InputComponent->BindAxis("TurnRate", this, &AUTMCharacter::TurnAtRate);
 	InputComponent->BindAxis("LookUp", this, &APawn::AddControllerPitchInput);
-	InputComponent->BindAxis("LookUpRate", this, &AUltimateTutorialsCharacter::LookUpAtRate);
+	InputComponent->BindAxis("LookUpRate", this, &AUTMCharacter::LookUpAtRate);
 
 	// handle touch devices
-	InputComponent->BindTouch(EInputEvent::IE_Pressed, this, &AUltimateTutorialsCharacter::TouchStarted);
+	InputComponent->BindTouch(EInputEvent::IE_Pressed, this, &AUTMCharacter::TouchStarted);
 }
 
-
-
-void AUltimateTutorialsCharacter::TouchStarted(ETouchIndex::Type FingerIndex, FVector Location)
+void AUTMCharacter::TouchStarted(ETouchIndex::Type FingerIndex, FVector Location)
 {
 	// jump, but only on the first touch
 	if (FingerIndex == ETouchIndex::Touch1)
@@ -96,19 +94,19 @@ void AUltimateTutorialsCharacter::TouchStarted(ETouchIndex::Type FingerIndex, FV
 	}
 }
 
-void AUltimateTutorialsCharacter::TurnAtRate(float Rate)
+void AUTMCharacter::TurnAtRate(float Rate)
 {
 	// calculate delta for this frame from the rate information
 	AddControllerYawInput(Rate * BaseTurnRate * GetWorld()->GetDeltaSeconds());
 }
 
-void AUltimateTutorialsCharacter::LookUpAtRate(float Rate)
+void AUTMCharacter::LookUpAtRate(float Rate)
 {
 	// calculate delta for this frame from the rate information
 	AddControllerPitchInput(Rate * BaseLookUpRate * GetWorld()->GetDeltaSeconds());
 }
 
-void AUltimateTutorialsCharacter::MoveForward(float Value)
+void AUTMCharacter::MoveForward(float Value)
 {
 	if ((Controller != NULL) && (Value != 0.0f) && bAllowInput == true)
 	{
@@ -122,14 +120,14 @@ void AUltimateTutorialsCharacter::MoveForward(float Value)
 	}
 }
 
-void AUltimateTutorialsCharacter::MoveRight(float Value)
+void AUTMCharacter::MoveRight(float Value)
 {
 	if ((Controller != NULL) && (Value != 0.0f) && bAllowInput == true)
 	{
 		// find out which way is right
 		const FRotator Rotation = Controller->GetControlRotation();
 		const FRotator YawRotation(0, Rotation.Yaw, 0);
-	
+
 		// get right vector 
 		const FVector Direction = FRotationMatrix(Rotation).GetUnitAxis(EAxis::Y);
 		// add movement in that direction
@@ -137,19 +135,19 @@ void AUltimateTutorialsCharacter::MoveRight(float Value)
 	}
 }
 
-void AUltimateTutorialsCharacter::Sprint()
+void AUTMCharacter::Sprint()
 {
 	Speed = 1200.f;
 	CharacterMovement->MaxWalkSpeed = Speed;
 }
 
-void AUltimateTutorialsCharacter::SprintEnd()
+void AUTMCharacter::SprintEnd()
 {
 	Speed = LastSpeed;
 	CharacterMovement->MaxWalkSpeed = Speed;
 }
 
-void AUltimateTutorialsCharacter::Jog()
+void AUTMCharacter::Jog()
 {
 	bJogging = !bJogging;
 
@@ -165,28 +163,16 @@ void AUltimateTutorialsCharacter::Jog()
 	}
 }
 
-void AUltimateTutorialsCharacter::Walk()
+void AUTMCharacter::Walk()
 {
 	Speed = 300.f;
 	CharacterMovement->MaxWalkSpeed = Speed;
 	LastSpeed = Speed;
 }
 
-void AUltimateTutorialsCharacter::BeginPlay()
+void AUTMCharacter::ZoomIn()
 {
-	LastSpeed = 300.f;
-	bIsInFPS = true;
-	CameraBoom->AttachTo(Mesh, "fpsHead");
-	CameraBoom->TargetArmLength = 0.f;
-	bUseControllerRotationYaw = true;
-	CameraBoom->SetRelativeLocation(FpsOffset);
-	bAllowInput = true;
-}
 
-
-void AUltimateTutorialsCharacter::ZoomIn()
-{
-	
 
 	if (CameraBoom->TargetArmLength > 50.f)
 	{
@@ -206,9 +192,9 @@ void AUltimateTutorialsCharacter::ZoomIn()
 	}
 }
 
-void AUltimateTutorialsCharacter::ZoomOut()
+void AUTMCharacter::ZoomOut()
 {
-	
+
 
 	if (CameraBoom->TargetArmLength < 300.f)
 	{
@@ -220,7 +206,7 @@ void AUltimateTutorialsCharacter::ZoomOut()
 	}
 }
 
-void AUltimateTutorialsCharacter::SlowMo()
+void AUTMCharacter::SlowMo()
 {
 	bSlowMo = !bSlowMo;
 
@@ -234,7 +220,47 @@ void AUltimateTutorialsCharacter::SlowMo()
 	}
 }
 
-void TakeDmg_Implementation(int32 Damage)
+
+
+
+
+void AUTMCharacter::BeginPlay()
 {
-	// your code here
+	LastSpeed = 300.f;
+	bIsInFPS = true;
+	CameraBoom->AttachTo(Mesh, "fpsHead");
+	CameraBoom->TargetArmLength = 0.f;
+	bUseControllerRotationYaw = true;
+	CameraBoom->SetRelativeLocation(FpsOffset);
+	bAllowInput = true;
+}
+
+
+
+
+
+
+void AUTMCharacter::TakeDmg_Implementation(int32 Damage)
+{
+	DamageTaken = Damage;
+	Health = Health - DamageTaken;
+	if (Health < 0)
+	{
+		Health = 0;
+	}
+}
+
+void AUTMCharacter::Respawn_Implementation()
+{
+	
+}
+
+void AUTMCharacter::PlayDmgSound_Implementation()
+{
+
+}
+
+void AUTMCharacter::PlayRespawnSound_Implementation()
+{
+
 }

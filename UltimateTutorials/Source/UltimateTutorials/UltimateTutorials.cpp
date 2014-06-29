@@ -3,5 +3,5 @@
 #include "UltimateTutorials.h"
 #include "UltimateTutorials.generated.inl"
 
-IMPLEMENT_PRIMARY_GAME_MODULE( FDefaultGameModuleImpl, UltimateTutorials, "UltimateTutorials" );
+IMPLEMENT_PRIMARY_GAME_MODULE(FDefaultGameModuleImpl, UltimateTutorials, "UltimateTutorials");
  

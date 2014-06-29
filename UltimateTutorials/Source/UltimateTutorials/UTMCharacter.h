@@ -2,7 +2,7 @@
 #pragma once
 
 #include "GameFramework/SpringArmComponent.h"
-#include "UltimateTutorialsCharacter.generated.h"
+#include "UTMCharacter.generated.h"
 
 UENUM(BlueprintType, Category = "Weapons")
 enum EWeaponTypes
@@ -14,7 +14,7 @@ enum EWeaponTypes
 
 
 UCLASS(config=Game)
-class AUltimateTutorialsCharacter : public ACharacter
+class AUTMCharacter : public ACharacter
 {
 	GENERATED_UCLASS_BODY()
 
@@ -28,25 +28,11 @@ class AUltimateTutorialsCharacter : public ACharacter
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = Camera)
 		TSubobjectPtr<class UCameraComponent> FollowCamera;
 
-	/** Base turn rate, in deg/sec. Other scaling may affect final turn rate. */
-	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = Camera)
-		float BaseTurnRate;
-
-	/** Base look up/down rate, in deg/sec. Other scaling may affect final rate. */
-	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = Camera)
-		float BaseLookUpRate;
-
-
 protected:
-
 
 	// APawn interface
-	virtual void SetupPlayerInputComponent(class UInputComponent* InputComponent) OVERRIDE;
+		virtual void SetupPlayerInputComponent(class UInputComponent* InputComponent) OVERRIDE;
 	// End of APawn interface
-
-
-
-protected:
 
 	/** Called for forwards/backward input */
 	void MoveForward(float Value);
@@ -55,19 +41,27 @@ protected:
 	void MoveRight(float Value);
 
 	/**
-	 * Called via input to turn at a given rate.
-	 * @param Rate	This is a normalized rate, i.e. 1.0 means 100% of desired turn rate
-	 */
+	* Called via input to turn at a given rate.
+	* @param Rate	This is a normalized rate, i.e. 1.0 means 100% of desired turn rate
+	*/
 	void TurnAtRate(float Rate);
 
 	/**
-	 * Called via input to turn look up/down at a given rate.
-	 * @param Rate	This is a normalized rate, i.e. 1.0 means 100% of desired turn rate
-	 */
+	* Called via input to turn look up/down at a given rate.
+	* @param Rate	This is a normalized rate, i.e. 1.0 means 100% of desired turn rate
+	*/
 	void LookUpAtRate(float Rate);
 
 	/** Handler for when a touch input begins. */
 	void TouchStarted(ETouchIndex::Type FingerIndex, FVector Location);
+
+	/** Base turn rate, in deg/sec. Other scaling may affect final turn rate. */
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = Camera)
+		float BaseTurnRate;
+
+	/** Base look up/down rate, in deg/sec. Other scaling may affect final rate. */
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = Camera)
+		float BaseLookUpRate;
 
 	//Sprinting
 	void Sprint();
@@ -76,12 +70,21 @@ protected:
 	void Walk();
 	bool bJogging;
 	UPROPERTY(VisibleAnywhere, BlueprintReadWrite, Category = "Variables")
-	bool bAllowInput;
+		bool bAllowInput;
 	float Speed;
 	float LastSpeed;
 
+	//Zoomable Third Person
+	float Zoom;
+	FVector FpsOffset = FVector(-2.f, -7.f, 0.f);
+	FVector TpsOffset = FVector(0.f, 30.f, 80.f);
+	void ZoomIn();
+	void ZoomOut();
+	void updateCamera();
 
-
+	//Slow-Mo
+	void SlowMo();
+	bool bSlowMo;
 
 
 	////Shooting
@@ -111,35 +114,37 @@ protected:
 	//int32 DamageMax;
 
 	//UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Weapons")
-	//void ChangeWeapon_Implementation(EWeaponTypes WeaponType);
+	//void ChangeWeapon(EWeaponTypes WeaponType);
 
 
 
 	//common Voids
 	virtual void BeginPlay();
 	
-	//Zoomable Third Person
-	float Zoom;
-	FVector FpsOffset = FVector(-2.f, -7.f, 0.f);
-	FVector TpsOffset = FVector(0.f, 30.f, 80.f);
-	void ZoomIn();
-	void ZoomOut();
-	void updateCamera();
+	
 
 	UPROPERTY(VisibleAnywhere, BlueprintReadWrite, Category = "ZoomTPS")
 		bool bIsInFPS;
 
-	//Slow-Mo
-	void SlowMo();
-	bool bSlowMo;
+	
 
 	//HP, Death, Checkpoint, Respawn
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "DmgSystem")
-	int32 Health;
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "DmgSystem")
 	int32 DamageTaken;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "DmgSystem")
+	bool bHasDied;
+	
 public:
-	UFUNCTION(BlueprintNativeEvent, Category = "DmgSystem")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "DmgSystem")
+		int32 Health;
+	UFUNCTION(BlueprintNativeEvent, BlueprintCallable, Category = "DmgSystem")
 		void TakeDmg(int32 Damage);
+	UFUNCTION(BlueprintNativeEvent, BlueprintCallable, Category = "DmgSystem")
+		void Respawn();
+	UFUNCTION(BlueprintNativeEvent, BlueprintCallable, Category = "DmgSystem")
+		void PlayDmgSound();
+	UFUNCTION(BlueprintNativeEvent, BlueprintCallable, Category = "DmgSystem")
+		void PlayRespawnSound();
+
 
 };
