@@ -9,6 +9,7 @@
 AUTMCharacter::AUTMCharacter(const class FPostConstructInitializeProperties& PCIP)
 	: Super(PCIP)
 {
+
 	// Set size for collision capsule
 	CapsuleComponent->InitCapsuleSize(42.f, 96.0f);
 

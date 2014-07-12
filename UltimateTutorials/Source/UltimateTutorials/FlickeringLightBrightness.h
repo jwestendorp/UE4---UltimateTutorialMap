@@ -13,15 +13,9 @@ class AFlickeringLightBrightness : public ALight
 {
 	GENERATED_UCLASS_BODY()
 
-		void Tick(float DeltaSeconds);
 		void Flicker();
-		/*void Delay();*/
+		virtual void Tick(float DeltaSeconds) OVERRIDE;
 		float RandomBrightness;
-
-	public:
-		UPROPERTY(VisibleAnywhere, Category = "Light")
-		TSubobjectPtr<UPointLightComponent> lightComp;
-	
-		
-	
+public:
+		void Delay();
 };

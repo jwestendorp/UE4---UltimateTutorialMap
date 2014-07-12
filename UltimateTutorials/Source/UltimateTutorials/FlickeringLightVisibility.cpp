@@ -12,7 +12,17 @@ AFlickeringLightVisibility::AFlickeringLightVisibility(const class FPostConstruc
 	RootComponent = lightComp;
 }
 
-void AFlickeringLightVisibility::Tick(float DeltaSeconds)
+void AFlickeringLightVisibility::BeginPlay()
+{
+	Delay();
+}
+
+void AFlickeringLightVisibility::Delay()
+{
+	GetWorldTimerManager().SetTimer(this, &AFlickeringLightVisibility::Flicker, 1.7f, true);
+}
+
+void AFlickeringLightVisibility::Flicker()
 {
 	lightComp->ToggleVisibility();
 }

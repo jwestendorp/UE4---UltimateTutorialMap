@@ -63,13 +63,14 @@ protected:
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = Camera)
 		float BaseLookUpRate;
 
+
 	//Sprinting
 	void Sprint();
 	void SprintEnd();
 	void Jog();
 	void Walk();
 	bool bJogging;
-	UPROPERTY(VisibleAnywhere, BlueprintReadWrite, Category = "Variables")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Variables")
 		bool bAllowInput;
 	float Speed;
 	float LastSpeed;
@@ -87,34 +88,55 @@ protected:
 	bool bSlowMo;
 
 
-	////Shooting
-	//UPROPERTY(EditAnywhere, Category = "Weapons", BlueprintReadWrite)
-	//UStaticMesh* WeaponMesh;
-	//UPROPERTY(EditAnywhere, Category = "Weapons", BlueprintReadWrite)
-	//UParticleSystem* MuzzleFlash;
+	//Shooting
+	UPROPERTY(EditAnywhere, Category = "Weapons", BlueprintReadWrite)
+	UStaticMesh* WeaponMesh;
+	UPROPERTY(EditAnywhere, Category = "Weapons", BlueprintReadWrite)
+	UParticleSystem* MuzzleFlash;
 
-	//bool bPressed;
-	//bool bPlaynAnim;
-	//
-	//float RateOfFire;
-	//float HeatSpeed;
-	//float HeatLevel;
-	//float MaxSpread;
-	//float Spread;
-	//float SpreadChange;
-	//float HiRot;
-	//float HiRotTarget;
-	//float HiRotSpeed;
-	//float HiRotPlayer;
-	//float GunDeltaTime;
-	//
-	//int32 AmmoNow;
-	//int32 AmmoMax;
-	//int32 DamageMin;
-	//int32 DamageMax;
+	UPROPERTY(EditAnywhere, Category = "Weapons", BlueprintReadWrite)
+	bool bPressed;
+	UPROPERTY(EditAnywhere, Category = "Weapons", BlueprintReadWrite)
+	bool bWaitForFire;
+	UPROPERTY(EditAnywhere, Category = "Weapons", BlueprintReadWrite)
+	bool bPlaynAnim;
+	
+	UPROPERTY(EditAnywhere, Category = "Weapons", BlueprintReadWrite)
+	float RateOfFire;
+	UPROPERTY(EditAnywhere, Category = "Weapons", BlueprintReadWrite)
+	float HeatSpeed;
+	UPROPERTY(EditAnywhere, Category = "Weapons", BlueprintReadWrite)
+	float HeatLevel;
+	UPROPERTY(EditAnywhere, Category = "Weapons", BlueprintReadWrite)
+	float MaxSpread;
+	UPROPERTY(EditAnywhere, Category = "Weapons", BlueprintReadWrite)
+	float Spread;
+	UPROPERTY(EditAnywhere, Category = "Weapons", BlueprintReadWrite)
+	float SpreadChange;
+	UPROPERTY(EditAnywhere, Category = "Weapons", BlueprintReadWrite)
+	float HiRot;
+	UPROPERTY(EditAnywhere, Category = "Weapons", BlueprintReadWrite)
+	float HiRotTarget;
+	UPROPERTY(EditAnywhere, Category = "Weapons", BlueprintReadWrite)
+	float HiRotSpeed;
+	UPROPERTY(EditAnywhere, Category = "Weapons", BlueprintReadWrite)
+	float HiRotPlayer;
+	UPROPERTY(EditAnywhere, Category = "Weapons", BlueprintReadWrite)
+	float GunDeltaTime;
+	
+	UPROPERTY(EditAnywhere, Category = "Weapons", BlueprintReadWrite)
+	int32 AmmoNow;
+	UPROPERTY(EditAnywhere, Category = "Weapons", BlueprintReadWrite)
+	int32 AmmoMax;
+	UPROPERTY(EditAnywhere, Category = "Weapons", BlueprintReadWrite)
+	int32 DamageMin;
+	UPROPERTY(EditAnywhere, Category = "Weapons", BlueprintReadWrite)
+	int32 DamageMax;
 
-	//UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Weapons")
-	//void ChangeWeapon(EWeaponTypes WeaponType);
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Weapons")
+	void ChangeWeapon(EWeaponTypes WeaponType);
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Weapons")
+	void FireRifle(float DeltaTime);
 
 
 
@@ -123,7 +145,7 @@ protected:
 	
 	
 
-	UPROPERTY(VisibleAnywhere, BlueprintReadWrite, Category = "ZoomTPS")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "ZoomTPS")
 		bool bIsInFPS;
 
 	

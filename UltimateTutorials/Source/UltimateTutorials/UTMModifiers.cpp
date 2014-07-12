@@ -19,5 +19,6 @@ void UUTMModifiers::TaxiCabNumber()
 
 void UUTMModifiers::TheRedButton()
 {
-
+	AUTMCharacter *MyCharacter = (AUTMCharacter*)GetWorld()->GetFirstPlayerController()->GetPawn();
+	MyCharacter->TakeDmg(100000);
 }

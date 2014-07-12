@@ -8,11 +8,10 @@ ADayTimeLight::ADayTimeLight(const class FPostConstructInitializeProperties& PCI
 	: Super(PCIP.SetDefaultSubobjectClass<UDirectionalLightComponent>(TEXT("LightComponent0")))
 {
 	PrimaryActorTick.bCanEverTick = true;
-	UDirectionalLightComponent* DirLight = CastChecked<UDirectionalLightComponent>(LightComponent);
-	RootComponent = DirLight;
+	RootComponent = LightComponent;
 	SunSpeed = 0.7f;
-	DirLight->SetMobility(EComponentMobility::Movable);
-	DirLight->SetAffectDynamicIndirectLighting(true);
+	SetMobility(EComponentMobility::Movable);
+	LightComponent->SetAffectDynamicIndirectLighting(true);
 }
 
 void ADayTimeLight::Tick(float DeltaSeconds){
