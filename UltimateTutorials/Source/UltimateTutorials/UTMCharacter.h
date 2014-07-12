@@ -4,14 +4,6 @@
 #include "GameFramework/SpringArmComponent.h"
 #include "UTMCharacter.generated.h"
 
-UENUM(BlueprintType, Category = "Weapons")
-enum EWeaponTypes
-{
-	None,
-	G36C
-};
-
-
 
 UCLASS(config=Game)
 class AUTMCharacter : public ACharacter
@@ -88,58 +80,6 @@ protected:
 	bool bSlowMo;
 
 
-	//Shooting
-	UPROPERTY(EditAnywhere, Category = "Weapons", BlueprintReadWrite)
-	UStaticMesh* WeaponMesh;
-	UPROPERTY(EditAnywhere, Category = "Weapons", BlueprintReadWrite)
-	UParticleSystem* MuzzleFlash;
-
-	UPROPERTY(EditAnywhere, Category = "Weapons", BlueprintReadWrite)
-	bool bPressed;
-	UPROPERTY(EditAnywhere, Category = "Weapons", BlueprintReadWrite)
-	bool bWaitForFire;
-	UPROPERTY(EditAnywhere, Category = "Weapons", BlueprintReadWrite)
-	bool bPlaynAnim;
-	
-	UPROPERTY(EditAnywhere, Category = "Weapons", BlueprintReadWrite)
-	float RateOfFire;
-	UPROPERTY(EditAnywhere, Category = "Weapons", BlueprintReadWrite)
-	float HeatSpeed;
-	UPROPERTY(EditAnywhere, Category = "Weapons", BlueprintReadWrite)
-	float HeatLevel;
-	UPROPERTY(EditAnywhere, Category = "Weapons", BlueprintReadWrite)
-	float MaxSpread;
-	UPROPERTY(EditAnywhere, Category = "Weapons", BlueprintReadWrite)
-	float Spread;
-	UPROPERTY(EditAnywhere, Category = "Weapons", BlueprintReadWrite)
-	float SpreadChange;
-	UPROPERTY(EditAnywhere, Category = "Weapons", BlueprintReadWrite)
-	float HiRot;
-	UPROPERTY(EditAnywhere, Category = "Weapons", BlueprintReadWrite)
-	float HiRotTarget;
-	UPROPERTY(EditAnywhere, Category = "Weapons", BlueprintReadWrite)
-	float HiRotSpeed;
-	UPROPERTY(EditAnywhere, Category = "Weapons", BlueprintReadWrite)
-	float HiRotPlayer;
-	UPROPERTY(EditAnywhere, Category = "Weapons", BlueprintReadWrite)
-	float GunDeltaTime;
-	
-	UPROPERTY(EditAnywhere, Category = "Weapons", BlueprintReadWrite)
-	int32 AmmoNow;
-	UPROPERTY(EditAnywhere, Category = "Weapons", BlueprintReadWrite)
-	int32 AmmoMax;
-	UPROPERTY(EditAnywhere, Category = "Weapons", BlueprintReadWrite)
-	int32 DamageMin;
-	UPROPERTY(EditAnywhere, Category = "Weapons", BlueprintReadWrite)
-	int32 DamageMax;
-
-	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Weapons")
-	void ChangeWeapon(EWeaponTypes WeaponType);
-	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Weapons")
-	void FireRifle(float DeltaTime);
-
-
-
 	//common Voids
 	virtual void BeginPlay();
 	
@@ -161,11 +101,11 @@ public:
 		int32 Health;
 	UFUNCTION(BlueprintNativeEvent, BlueprintCallable, Category = "DmgSystem")
 		void TakeDmg(int32 Damage);
-	UFUNCTION(BlueprintNativeEvent, BlueprintCallable, Category = "DmgSystem")
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "DmgSystem")
 		void Respawn();
-	UFUNCTION(BlueprintNativeEvent, BlueprintCallable, Category = "DmgSystem")
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "DmgSystem")
 		void PlayDmgSound();
-	UFUNCTION(BlueprintNativeEvent, BlueprintCallable, Category = "DmgSystem")
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "DmgSystem")
 		void PlayRespawnSound();
 
 

@@ -18,6 +18,7 @@ AUTMCharacter::AUTMCharacter(const class FPostConstructInitializeProperties& PCI
 	BaseLookUpRate = 45.f;
 	Zoom = 50.f;
 
+
 	// Don't rotate when the controller rotates. Let that just affect the camera.
 	bUseControllerRotationPitch = false;
 	bUseControllerRotationYaw = false;
@@ -249,19 +250,4 @@ void AUTMCharacter::TakeDmg_Implementation(int32 Damage)
 	{
 		Health = 0;
 	}
-}
-
-void AUTMCharacter::Respawn_Implementation()
-{
-	
-}
-
-void AUTMCharacter::PlayDmgSound_Implementation()
-{
-
-}
-
-void AUTMCharacter::PlayRespawnSound_Implementation()
-{
-
 }
