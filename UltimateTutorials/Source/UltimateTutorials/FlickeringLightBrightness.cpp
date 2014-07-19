@@ -23,5 +23,14 @@ void AFlickeringLightBrightness::Flicker()
 	LightComponent->SetBrightness(RandomBrightness);
 }
 
-
-
+//Timer ; Delay
+/*
+void AFlickeringLightBrightness::Delay()
+{
+	GetWorldTimerManager().SetTimer(this, &AFlickeringLightBrightness::Flicker, 0.3f, true);
+}
+void AFlickeringLightBrightness::BeginPlay()
+{
+	Delay();
+}
+*/

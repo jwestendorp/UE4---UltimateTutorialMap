@@ -16,6 +16,7 @@ class AFlickeringLightBrightness : public ALight
 		void Flicker();
 		virtual void Tick(float DeltaSeconds) OVERRIDE;
 		float RandomBrightness;
-public:
+/*public:
 		void Delay();
+*/
 };
