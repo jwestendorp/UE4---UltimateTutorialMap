@@ -112,12 +112,21 @@ void AUTMCharacter::MoveForward(float Value)
 {
 	if ((Controller != NULL) && (Value != 0.0f) && bAllowInput == true)
 	{
+		//swimming
+		if (GetPawnPhysicsVolume()->bWaterVolume)
+		{
+			const FRotator Rotation = Controller->GetControlRotation();
+			const FVector Direction = FRotationMatrix(Rotation).GetUnitAxis(EAxis::X);
+			AddMovementInput(Direction, Value);
+			return;
+		}
+
 		// find out which way is forward
 		const FRotator Rotation = Controller->GetControlRotation();
 		const FRotator YawRotation(0, Rotation.Yaw, 0);
 
 		// get forward vector
-		const FVector Direction = FRotationMatrix(Rotation).GetUnitAxis(EAxis::X);
+		const FVector Direction = FRotationMatrix(YawRotation).GetUnitAxis(EAxis::X);
 		AddMovementInput(Direction, Value);
 	}
 }
