@@ -16,10 +16,6 @@ class AFlickeringLightVisibility : public ALight
 		void BeginPlay();
 		void Delay();
 		void Flicker();
-
-public:
-	UPROPERTY(VisibleAnywhere, Category = "Light")
-		TSubobjectPtr<UPointLightComponent> lightComp;
 	
 };
 

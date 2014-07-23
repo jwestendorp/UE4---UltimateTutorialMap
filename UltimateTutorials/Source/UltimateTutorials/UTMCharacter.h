@@ -10,6 +10,7 @@ class AUTMCharacter : public ACharacter
 {
 	GENERATED_UCLASS_BODY()
 
+	
 
 
 	/** Camera boom positioning the camera behind the character */

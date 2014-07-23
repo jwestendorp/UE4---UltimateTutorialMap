@@ -5,11 +5,10 @@
 
 
 AFlickeringLightVisibility::AFlickeringLightVisibility(const class FPostConstructInitializeProperties& PCIP)
-	: Super(PCIP)
+	: Super(PCIP.SetDefaultSubobjectClass<UPointLightComponent>(TEXT("LightComponent1")))
 {
 	PrimaryActorTick.bCanEverTick = true;
-	lightComp = PCIP.CreateDefaultSubobject<UPointLightComponent>(this, "BlinkLightV");
-	RootComponent = lightComp;
+	RootComponent = LightComponent;
 }
 
 void AFlickeringLightVisibility::BeginPlay()
@@ -19,10 +18,10 @@ void AFlickeringLightVisibility::BeginPlay()
 
 void AFlickeringLightVisibility::Delay()
 {
-	GetWorldTimerManager().SetTimer(this, &AFlickeringLightVisibility::Flicker, 1.7f, true);
+	GetWorldTimerManager().SetTimer(this, &AFlickeringLightVisibility::Flicker, 0.01f, true);
 }
 
 void AFlickeringLightVisibility::Flicker()
 {
-	lightComp->ToggleVisibility();
+	LightComponent->ToggleVisibility();
 }
