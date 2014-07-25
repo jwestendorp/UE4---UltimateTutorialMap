@@ -5,9 +5,8 @@
 
 
 AFlickeringLightVisibility::AFlickeringLightVisibility(const class FPostConstructInitializeProperties& PCIP)
-	: Super(PCIP.SetDefaultSubobjectClass<UPointLightComponent>(TEXT("LightComponent1")))
+	: Super(PCIP.SetDefaultSubobjectClass<UPointLightComponent>(TEXT("LightComponent0")))
 {
-	PrimaryActorTick.bCanEverTick = true;
 	RootComponent = LightComponent;
 }
 

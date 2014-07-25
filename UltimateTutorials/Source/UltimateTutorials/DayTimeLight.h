@@ -15,10 +15,10 @@ class ADayTimeLight : public ALight
 		GENERATED_UCLASS_BODY()
 			
 			
-		void Tick(float DeltaSeconds) OVERRIDE;
+		void Tick(float DeltaSeconds) override;
 	
 
-		virtual void BeginPlay() OVERRIDE;
+		virtual void BeginPlay() override;
 
 		UPROPERTY(VisibleAnywhere, BlueprintReadWrite, Category = "Variable")
 		float SunSpeed;

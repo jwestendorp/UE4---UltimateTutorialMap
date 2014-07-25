@@ -8,7 +8,7 @@
 /**
  * 
  */
-UCLASS()
+UCLASS(ClassGroup = (Lights, FlickeringLights), MinimalAPI)
 class AFlickeringLightVisibility : public ALight
 {
 	GENERATED_UCLASS_BODY()

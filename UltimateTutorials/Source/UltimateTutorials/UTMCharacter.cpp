@@ -96,16 +96,39 @@ void AUTMCharacter::TouchStarted(ETouchIndex::Type FingerIndex, FVector Location
 	}
 }
 
+//void AUTMCharacter::Turn()
+//{
+//	if (bAllowInput == true)
+//	{
+//		APawn::AddControllerYawInput();
+//	}
+//}
+//
+//void AUTMCharacter::LookUp()
+//{
+//	if (bAllowInput == true)
+//	{
+//		APawn::AddControllerPitchInput();
+//	}
+//}
+
+
 void AUTMCharacter::TurnAtRate(float Rate)
 {
-	// calculate delta for this frame from the rate information
-	AddControllerYawInput(Rate * BaseTurnRate * GetWorld()->GetDeltaSeconds());
+	if (bAllowInput == true)
+	{
+		// calculate delta for this frame from the rate information
+		AddControllerYawInput(Rate * BaseTurnRate * GetWorld()->GetDeltaSeconds());
+	}
 }
 
 void AUTMCharacter::LookUpAtRate(float Rate)
 {
-	// calculate delta for this frame from the rate information
-	AddControllerPitchInput(Rate * BaseLookUpRate * GetWorld()->GetDeltaSeconds());
+	if (bAllowInput == true)
+	{
+		// calculate delta for this frame from the rate information
+		AddControllerPitchInput(Rate * BaseLookUpRate * GetWorld()->GetDeltaSeconds());
+	}
 }
 
 void AUTMCharacter::MoveForward(float Value)

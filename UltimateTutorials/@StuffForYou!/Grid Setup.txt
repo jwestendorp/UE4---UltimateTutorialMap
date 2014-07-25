@@ -1,0 +1,13 @@
+Autodesk Maya:
+Length & Width: 1000 units
+Grid Lines Every: 10 Units
+Subdivisios: 10
+
+Turn Subdivision Lines off if you want 10cm steps (usefull when modelling big stuff)
+Turn Subdivision Lines on if you want 1cm steps (usefull for small stuff)
+
+Blender:
+Scene Menu -> Units
+Metric ; Scale: 0.010
+
+This will make 1 Grid like a Meter :)

@@ -24,7 +24,7 @@ class AUTMCharacter : public ACharacter
 protected:
 
 	// APawn interface
-		virtual void SetupPlayerInputComponent(class UInputComponent* InputComponent) OVERRIDE;
+		virtual void SetupPlayerInputComponent(class UInputComponent* InputComponent) override;
 	// End of APawn interface
 
 	/** Called for forwards/backward input */
@@ -38,12 +38,14 @@ protected:
 	* @param Rate	This is a normalized rate, i.e. 1.0 means 100% of desired turn rate
 	*/
 	void TurnAtRate(float Rate);
+	/*void Turn();*/
 
 	/**
 	* Called via input to turn look up/down at a given rate.
 	* @param Rate	This is a normalized rate, i.e. 1.0 means 100% of desired turn rate
 	*/
 	void LookUpAtRate(float Rate);
+	/*void LookUp();*/
 
 	/** Handler for when a touch input begins. */
 	void TouchStarted(ETouchIndex::Type FingerIndex, FVector Location);
@@ -64,7 +66,7 @@ protected:
 	void Walk();
 	bool bJogging;
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Variables")
-		bool bAllowInput;
+	bool bAllowInput;
 	float Speed;
 	float LastSpeed;
 
@@ -87,7 +89,7 @@ protected:
 	
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "ZoomTPS")
-		bool bIsInFPS;
+	bool bIsInFPS;
 
 	
 
@@ -104,6 +106,8 @@ public:
 		void TakeDmg(int32 Damage);
 	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "DmgSystem")
 		void Respawn();
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "DmgSystem")
+		void SetRespawnPoint(FVector Respawnpoint);
 	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "DmgSystem")
 		void PlayDmgSound();
 	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "DmgSystem")

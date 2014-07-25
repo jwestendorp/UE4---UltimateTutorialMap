@@ -7,14 +7,7 @@
 AFlickeringLightBrightness::AFlickeringLightBrightness(const class FPostConstructInitializeProperties& PCIP)
 	: Super(PCIP.SetDefaultSubobjectClass<UPointLightComponent>(TEXT("LightComponent0")))
 {
-	PrimaryActorTick.bCanEverTick = true;
 	RootComponent = LightComponent;
-}
-
-void AFlickeringLightBrightness::Tick(float DeltaSeconds)
-{
-	Super::Tick(DeltaSeconds);
-	Flicker();
 }
 
 void AFlickeringLightBrightness::Flicker()
@@ -24,13 +17,12 @@ void AFlickeringLightBrightness::Flicker()
 }
 
 //Timer ; Delay
-/*
+
 void AFlickeringLightBrightness::Delay()
 {
-	GetWorldTimerManager().SetTimer(this, &AFlickeringLightBrightness::Flicker, 0.3f, true);
+	GetWorldTimerManager().SetTimer(this, &AFlickeringLightBrightness::Flicker, 0.01f, true);
 }
 void AFlickeringLightBrightness::BeginPlay()
 {
 	Delay();
 }
-*/
