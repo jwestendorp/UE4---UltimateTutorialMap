@@ -22,6 +22,7 @@ void AFlickeringLightBrightness::Delay()
 {
 	GetWorldTimerManager().SetTimer(this, &AFlickeringLightBrightness::Flicker, 0.01f, true);
 }
+
 void AFlickeringLightBrightness::BeginPlay()
 {
 	Delay();

@@ -113,5 +113,4 @@ public:
 	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "DmgSystem")
 		void PlayRespawnSound();
 
-
 };
