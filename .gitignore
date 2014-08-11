@@ -4,10 +4,10 @@
 *.suo
 
 # Folders
-Binaries/
-Build/
-DerivedDataCache/
-Intermediate/
-Saved/
-Content/AI_System/
-Content/MixamoAnimPack/
+UltimateTutorials/Binaries/
+UltimateTutorials/Build/
+UltimateTutorials/DerivedDataCache/
+UltimateTutorials/Intermediate/
+UltimateTutorials/Saved/
+UltimateTutorials/Content/AI_System/
+UltimateTutorials/Content/MixamoAnimPack/

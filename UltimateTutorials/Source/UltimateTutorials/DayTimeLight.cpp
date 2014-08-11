@@ -9,7 +9,7 @@ ADayTimeLight::ADayTimeLight(const class FPostConstructInitializeProperties& PCI
 {
 	PrimaryActorTick.bCanEverTick = true;
 	RootComponent = LightComponent;
-	SunSpeed = 0.7f;
+	SunSpeed = 10.f;
 	SetMobility(EComponentMobility::Movable);
 	LightComponent->SetAffectDynamicIndirectLighting(true);
 }
