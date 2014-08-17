@@ -1,6 +1,6 @@
 {
 	"FileVersion": 3,
-	"EngineAssociation": "4.3",
+	"EngineAssociation": "4.4",
 	"Category": "",
 	"Description": "",
 	"Modules": [
@@ -24,12 +24,56 @@
 			"Enabled": true
 		},
 		{
-			"Name": "SoundVisualizations",
+			"Name": "FluidSurface",
 			"Enabled": true
 		},
 		{
-			"Name": "FluidSurface",
+			"Name": "ScriptPlugin",
+			"Enabled": false
+		},
+		{
+			"Name": "SlateRemote",
+			"Enabled": false
+		},
+		{
+			"Name": "ScriptGeneratorPlugin",
+			"Enabled": false
+		},
+		{
+			"Name": "ScriptEditorPlugin",
+			"Enabled": false
+		},
+		{
+			"Name": "SubversionSourceControl",
+			"Enabled": false
+		},
+		{
+			"Name": "TwitchLiveStreaming",
 			"Enabled": true
+		},
+		{
+			"Name": "UObjectPlugin",
+			"Enabled": false
+		},
+		{
+			"Name": "XCodeSourceCodeAccess",
+			"Enabled": false
+		},
+		{
+			"Name": "AndroidDeviceProfileSelector",
+			"Enabled": false
+		},
+		{
+			"Name": "AppleMoviePlayer",
+			"Enabled": false
+		},
+		{
+			"Name": "BlankPlugin",
+			"Enabled": false
+		},
+		{
+			"Name": "IOSDeviceProfileSelector",
+			"Enabled": false
 		}
 	]
 }
