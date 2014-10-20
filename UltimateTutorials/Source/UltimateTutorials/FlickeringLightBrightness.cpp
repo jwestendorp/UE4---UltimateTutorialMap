@@ -13,7 +13,7 @@ AFlickeringLightBrightness::AFlickeringLightBrightness(const class FPostConstruc
 void AFlickeringLightBrightness::Flicker()
 {
 	RandomBrightness = ((float)rand()) / ((float)(RAND_MAX / 5000.f));
-	LightComponent->SetBrightness(RandomBrightness);
+	LightComponent->SetIntensity(RandomBrightness);
 }
 
 //Timer ; Delay

@@ -1,6 +1,6 @@
 {
 	"FileVersion": 3,
-	"EngineAssociation": "4.4",
+	"EngineAssociation": "4.5",
 	"Category": "",
 	"Description": "",
 	"Modules": [
@@ -21,10 +21,6 @@
 		},
 		{
 			"Name": "Phya",
-			"Enabled": true
-		},
-		{
-			"Name": "FluidSurface",
 			"Enabled": true
 		},
 		{
