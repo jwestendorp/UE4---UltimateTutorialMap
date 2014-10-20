@@ -9,6 +9,7 @@
 AUTMCharacter::AUTMCharacter(const class FPostConstructInitializeProperties& PCIP)
 	: Super(PCIP)
 {
+
 	// Set size for collision capsule
 	CapsuleComponent->InitCapsuleSize(42.f, 96.0f);
 
@@ -16,6 +17,7 @@ AUTMCharacter::AUTMCharacter(const class FPostConstructInitializeProperties& PCI
 	BaseTurnRate = 45.f;
 	BaseLookUpRate = 45.f;
 	Zoom = 50.f;
+
 
 	// Don't rotate when the controller rotates. Let that just affect the camera.
 	bUseControllerRotationPitch = false;
@@ -41,12 +43,12 @@ AUTMCharacter::AUTMCharacter(const class FPostConstructInitializeProperties& PCI
 	CameraBoom = PCIP.CreateDefaultSubobject<USpringArmComponent>(this, TEXT("CameraBoom"));
 	CameraBoom->AttachTo(RootComponent);
 	CameraBoom->TargetArmLength = 300.0f; // The camera follows at this distance behind the character	
-	CameraBoom->bUseControllerViewRotation = true; // Rotate the arm based on the controller
+	CameraBoom->bUsePawnControlRotation = true; // Rotate the arm based on the controller
 
 	// Create a follow camera
 	FollowCamera = PCIP.CreateDefaultSubobject<UCameraComponent>(this, TEXT("FollowCamera"));
 	FollowCamera->AttachTo(CameraBoom, USpringArmComponent::SocketName); // Attach the camera to the end of the boom and let the boom adjust to match the controller orientation
-	FollowCamera->bUseControllerViewRotation = true; // Camera does not rotate relative to arm
+	FollowCamera->bUsePawnControlRotation = true; // Camera does not rotate relative to arm
 
 	// Note: The skeletal mesh and anim blueprint references on the Mesh component (inherited from Character) 
 	// are set in the derived blueprint asset named MyCharacter (to avoid direct content references in C++)
@@ -94,28 +96,60 @@ void AUTMCharacter::TouchStarted(ETouchIndex::Type FingerIndex, FVector Location
 	}
 }
 
+//void AUTMCharacter::Turn()
+//{
+//	if (bAllowInput == true)
+//	{
+//		APawn::AddControllerYawInput();
+//	}
+//}
+//
+//void AUTMCharacter::LookUp()
+//{
+//	if (bAllowInput == true)
+//	{
+//		APawn::AddControllerPitchInput();
+//	}
+//}
+
+
 void AUTMCharacter::TurnAtRate(float Rate)
 {
-	// calculate delta for this frame from the rate information
-	AddControllerYawInput(Rate * BaseTurnRate * GetWorld()->GetDeltaSeconds());
+	if (bAllowInput == true)
+	{
+		// calculate delta for this frame from the rate information
+		AddControllerYawInput(Rate * BaseTurnRate * GetWorld()->GetDeltaSeconds());
+	}
 }
 
 void AUTMCharacter::LookUpAtRate(float Rate)
 {
-	// calculate delta for this frame from the rate information
-	AddControllerPitchInput(Rate * BaseLookUpRate * GetWorld()->GetDeltaSeconds());
+	if (bAllowInput == true)
+	{
+		// calculate delta for this frame from the rate information
+		AddControllerPitchInput(Rate * BaseLookUpRate * GetWorld()->GetDeltaSeconds());
+	}
 }
 
 void AUTMCharacter::MoveForward(float Value)
 {
 	if ((Controller != NULL) && (Value != 0.0f) && bAllowInput == true)
 	{
+		//swimming
+		if (GetPawnPhysicsVolume()->bWaterVolume)
+		{
+			const FRotator Rotation = Controller->GetControlRotation();
+			const FVector Direction = FRotationMatrix(Rotation).GetUnitAxis(EAxis::X);
+			AddMovementInput(Direction, Value);
+			return;
+		}
+
 		// find out which way is forward
 		const FRotator Rotation = Controller->GetControlRotation();
 		const FRotator YawRotation(0, Rotation.Yaw, 0);
 
 		// get forward vector
-		const FVector Direction = FRotationMatrix(Rotation).GetUnitAxis(EAxis::X);
+		const FVector Direction = FRotationMatrix(YawRotation).GetUnitAxis(EAxis::X);
 		AddMovementInput(Direction, Value);
 	}
 }
@@ -248,19 +282,4 @@ void AUTMCharacter::TakeDmg_Implementation(int32 Damage)
 	{
 		Health = 0;
 	}
-}
-
-void AUTMCharacter::Respawn_Implementation()
-{
-	
-}
-
-void AUTMCharacter::PlayDmgSound_Implementation()
-{
-
-}
-
-void AUTMCharacter::PlayRespawnSound_Implementation()
-{
-
 }

@@ -4,20 +4,13 @@
 #include "GameFramework/SpringArmComponent.h"
 #include "UTMCharacter.generated.h"
 
-UENUM(BlueprintType, Category = "Weapons")
-enum EWeaponTypes
-{
-	None,
-	G36C
-};
-
-
 
 UCLASS(config=Game)
 class AUTMCharacter : public ACharacter
 {
 	GENERATED_UCLASS_BODY()
 
+	
 
 
 	/** Camera boom positioning the camera behind the character */
@@ -31,7 +24,7 @@ class AUTMCharacter : public ACharacter
 protected:
 
 	// APawn interface
-		virtual void SetupPlayerInputComponent(class UInputComponent* InputComponent) OVERRIDE;
+		virtual void SetupPlayerInputComponent(class UInputComponent* InputComponent) override;
 	// End of APawn interface
 
 	/** Called for forwards/backward input */
@@ -45,12 +38,14 @@ protected:
 	* @param Rate	This is a normalized rate, i.e. 1.0 means 100% of desired turn rate
 	*/
 	void TurnAtRate(float Rate);
+	/*void Turn();*/
 
 	/**
 	* Called via input to turn look up/down at a given rate.
 	* @param Rate	This is a normalized rate, i.e. 1.0 means 100% of desired turn rate
 	*/
 	void LookUpAtRate(float Rate);
+	/*void LookUp();*/
 
 	/** Handler for when a touch input begins. */
 	void TouchStarted(ETouchIndex::Type FingerIndex, FVector Location);
@@ -63,14 +58,15 @@ protected:
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = Camera)
 		float BaseLookUpRate;
 
+
 	//Sprinting
 	void Sprint();
 	void SprintEnd();
 	void Jog();
 	void Walk();
 	bool bJogging;
-	UPROPERTY(VisibleAnywhere, BlueprintReadWrite, Category = "Variables")
-		bool bAllowInput;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Variables")
+	bool bAllowInput;
 	float Speed;
 	float LastSpeed;
 
@@ -87,44 +83,13 @@ protected:
 	bool bSlowMo;
 
 
-	////Shooting
-	//UPROPERTY(EditAnywhere, Category = "Weapons", BlueprintReadWrite)
-	//UStaticMesh* WeaponMesh;
-	//UPROPERTY(EditAnywhere, Category = "Weapons", BlueprintReadWrite)
-	//UParticleSystem* MuzzleFlash;
-
-	//bool bPressed;
-	//bool bPlaynAnim;
-	//
-	//float RateOfFire;
-	//float HeatSpeed;
-	//float HeatLevel;
-	//float MaxSpread;
-	//float Spread;
-	//float SpreadChange;
-	//float HiRot;
-	//float HiRotTarget;
-	//float HiRotSpeed;
-	//float HiRotPlayer;
-	//float GunDeltaTime;
-	//
-	//int32 AmmoNow;
-	//int32 AmmoMax;
-	//int32 DamageMin;
-	//int32 DamageMax;
-
-	//UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Weapons")
-	//void ChangeWeapon(EWeaponTypes WeaponType);
-
-
-
 	//common Voids
 	virtual void BeginPlay();
 	
 	
 
-	UPROPERTY(VisibleAnywhere, BlueprintReadWrite, Category = "ZoomTPS")
-		bool bIsInFPS;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "ZoomTPS")
+	bool bIsInFPS;
 
 	
 
@@ -139,12 +104,13 @@ public:
 		int32 Health;
 	UFUNCTION(BlueprintNativeEvent, BlueprintCallable, Category = "DmgSystem")
 		void TakeDmg(int32 Damage);
-	UFUNCTION(BlueprintNativeEvent, BlueprintCallable, Category = "DmgSystem")
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "DmgSystem")
 		void Respawn();
-	UFUNCTION(BlueprintNativeEvent, BlueprintCallable, Category = "DmgSystem")
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "DmgSystem")
+		void SetRespawnPoint(FVector Respawnpoint);
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "DmgSystem")
 		void PlayDmgSound();
-	UFUNCTION(BlueprintNativeEvent, BlueprintCallable, Category = "DmgSystem")
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "DmgSystem")
 		void PlayRespawnSound();
-
 
 };

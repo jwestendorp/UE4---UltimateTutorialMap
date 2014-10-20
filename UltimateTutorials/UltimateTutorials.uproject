@@ -1,16 +1,8 @@
 {
 	"FileVersion": 3,
-	"Version": 0,
-	"VersionName": "0.0",
-	"EngineVersion": "4.2",
-	"PackageFileUE4Version": 352,
-	"PackageFileLicenseeUE4Version": 0,
-	"EngineAssociation": "{14EC7BD5-44CC-8293-C9E5-33BA9040E353}",
-	"FriendlyName": "",
-	"Description": "",
+	"EngineAssociation": "4.5",
 	"Category": "",
-	"CreatedBy": "",
-	"CreatedByURL": "",
+	"Description": "",
 	"Modules": [
 		{
 			"Name": "UltimateTutorials",
@@ -18,5 +10,66 @@
 			"LoadingPhase": "Default"
 		}
 	],
-	"EpicSampleNameHash": "0"
+	"Plugins": [
+		{
+			"Name": "CodeView",
+			"Enabled": true
+		},
+		{
+			"Name": "BlueprintStats",
+			"Enabled": true
+		},
+		{
+			"Name": "Phya",
+			"Enabled": true
+		},
+		{
+			"Name": "ScriptPlugin",
+			"Enabled": false
+		},
+		{
+			"Name": "SlateRemote",
+			"Enabled": false
+		},
+		{
+			"Name": "ScriptGeneratorPlugin",
+			"Enabled": false
+		},
+		{
+			"Name": "ScriptEditorPlugin",
+			"Enabled": false
+		},
+		{
+			"Name": "SubversionSourceControl",
+			"Enabled": false
+		},
+		{
+			"Name": "TwitchLiveStreaming",
+			"Enabled": true
+		},
+		{
+			"Name": "UObjectPlugin",
+			"Enabled": false
+		},
+		{
+			"Name": "XCodeSourceCodeAccess",
+			"Enabled": false
+		},
+		{
+			"Name": "AndroidDeviceProfileSelector",
+			"Enabled": false
+		},
+		{
+			"Name": "AppleMoviePlayer",
+			"Enabled": false
+		},
+		{
+			"Name": "BlankPlugin",
+			"Enabled": false
+		},
+		{
+			"Name": "IOSDeviceProfileSelector",
+			"Enabled": false
+		}
+	]
 }

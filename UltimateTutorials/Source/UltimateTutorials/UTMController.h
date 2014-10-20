@@ -8,7 +8,7 @@
 /**
  * 
  */
-UCLASS()
+UCLASS(config = Game)
 class AUTMController : public APlayerController
 {
 	GENERATED_UCLASS_BODY()

@@ -4,8 +4,12 @@
 *.suo
 
 # Folders
-Binaries/
-Build/
-DerivedDataCache/
-Intermediate/
-Saved/
+UltimateTutorials/Binaries/
+UltimateTutorials/Build/
+UltimateTutorials/DerivedDataCache/
+UltimateTutorials/Intermediate/
+UltimateTutorials/Saved/
+UltimateTutorials/Content/AI_System/
+UltimateTutorials/Content/MixamoAnimPack/
+UltimateTutorials/Content/AnimStarterPack/
+UltimateTutorials/Content/GTFreeMaterials/

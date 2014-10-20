@@ -8,20 +8,14 @@
 /**
  * 
  */
-UCLASS()
+UCLASS(ClassGroup = (Lights, FlickeringLights), MinimalAPI)
 class AFlickeringLightBrightness : public ALight
 {
 	GENERATED_UCLASS_BODY()
 
-		void Tick(float DeltaSeconds);
 		void Flicker();
-		/*void Delay();*/
+		virtual void BeginPlay() override;
 		float RandomBrightness;
+		void Delay();
 
-	public:
-		UPROPERTY(VisibleAnywhere, Category = "Light")
-		TSubobjectPtr<UPointLightComponent> lightComp;
-	
-		
-	
 };
