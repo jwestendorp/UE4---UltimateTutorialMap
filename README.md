@@ -11,7 +11,6 @@ Master will be merged every month.
 
 How to use
 ==========
-Install FluidSurface Plugin: https://github.com/Ehamloptiran/UnrealEngine/tree/FluidSurface
 
 Right Click on the .uproject file and select "switch unreal engine version"
 
